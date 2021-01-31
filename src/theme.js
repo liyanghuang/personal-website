@@ -5,18 +5,30 @@ import { createMuiTheme } from '@material-ui/core/styles';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#556cd6',
+      main: '#fab629',
+      dark: '#856015',
     },
     secondary: {
-      main: '#19857b',
+      main: '#5791e7',
     },
     error: {
       main: red.A400,
     },
     background: {
-      default: '#fff',
+      default: '#000',
     },
+    text:{
+      primary: '#FFF',
+      secondary: '#c4c4c4',
+    }
   },
+  typography: {
+    fontFamily: 'Asap',
+    button: {
+      fontSize: 16,
+      textTransform: 'none',
+    },
+  }
 });
 
 export default theme;
