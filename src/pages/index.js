@@ -1,34 +1,44 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import ProTip from '../components/ProTip';
-import Link from '../components/Link';
-import Copyright from '../components/Copyright';
 import MainButton from '../components/MainButton';
 import MainButtonFill from '../components/MainButtonFill';
 import { useTheme } from '@material-ui/core/styles';
-import HeaderButton from '../components/HeaderButton';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import styled from 'styled-components';
 
-export default function Index() {
-
-  const theme = useTheme()
+const Index = ({className}) => {
 
   return (
-    <Container maxWidth="sm">
-      <Box my={4}>
-        <MainButton text="Hire My Broke Ass" theme={theme}/>
-        <MainButtonFill text="Read My Woes" theme={theme}/>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Gatsby v4-beta example
-        </Typography>
-        <Link to="/about" color="secondary">
-          Go to the about page
-        </Link>
-        <ProTip />
-        <Copyright />
-      </Box>
-      <HeaderButton text="Testing" theme={theme}/>
-    </Container>
+    <Box className={className}>
+      <Header/> 
+      <Container maxWidth="sm" className="content-wrapper">
+      </Container>
+      <Footer/>
+    </Box>
   );
 }
+
+export default styled(Index)`
+  
+  position: relative;
+  min-height: 100vh;
+
+  header{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+  }
+  footer{
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+  }
+  .content-wrapper{
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+  }
+`
