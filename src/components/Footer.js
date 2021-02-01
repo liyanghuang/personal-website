@@ -1,21 +1,45 @@
 import React from 'react'
 import styled from 'styled-components'
-import HeaderButton from './HeaderButton'
-import { useTheme } from '@material-ui/core/styles'
-import { Box } from '@material-ui/core'
+import { useTheme, withStyles } from '@material-ui/core/styles'
+import { Box} from '@material-ui/core'
+import {Tooltip} from '@material-ui/core'
+import {FaGithubSquare, FaLinkedin} from 'react-icons/fa'
+import {RiMailFill} from 'react-icons/ri'
+
 
 const Footer = ({className}) => {
     const theme = useTheme()
     return (
         <footer className={className}>
             <Box className="border"></Box>
-            <Box component="span" className="about"><HeaderButton text="About" theme={theme} path="/about"  currPage/></Box>
-            <Box component="span" className="blog"><HeaderButton text="Blog" theme={theme} path="/blog" /></Box>
-            <Box component="span" className="contact"><HeaderButton text="Contact" theme={theme} path="/contact" /></Box>
+            <Box component="span" className="icon">
+                <Tooltip title="GitHub" placement="top" arrow>
+                    <a href="https://www.google.com"><FaGithubSquare color="white" size="1.5rem" /></a>
+                </Tooltip>
+            </Box>
+            <Box component="span" className="icon">
+                <Tooltip title="LinkedIn" arrow placement="top">
+                    <a href="https://www.google.com"><FaLinkedin color="white" size="1.5rem" /></a>
+                </Tooltip>
+            </Box>
+            <Box component="span" className="icon">
+                <Tooltip title="Mail" arrow placement="top">
+                    <a href="mailto: liyanghuang@ucla.edu" ><RiMailFill color="white" size="1.8rem" /></a>
+                </Tooltip>
+            </Box>
         </footer>
     )
     
 }
+
+const StyledTooltip = withStyles(() => ({
+  tooltip: {
+    boxShadow: '0.3rem 0.3rem 1rem black',
+    fontSize: 20,
+    fontWeight: 700,
+    fontFamily: 'Asap',
+  },
+}))(Tooltip);
 
 export default styled(Footer)`
     position:relative;
@@ -29,13 +53,11 @@ export default styled(Footer)`
         top: 0rem;
         border-bottom: 1px solid gray;
     }
-    .about{
+    .icon{
         display: inline-block;
-    }
-    .blog{
-        display: inline-block;
-    }
-    .contact{
-        display: inline-block;
+        vertical-align: middle;
+        margin-top: 1.25rem;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
     }
 `

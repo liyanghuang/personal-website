@@ -3,16 +3,17 @@ import styled from 'styled-components'
 import HeaderTitle from './HeaderTitle'
 import HeaderButton from './HeaderButton'
 import { useTheme } from '@material-ui/core/styles'
+import {Box} from '@material-ui/core'
 
 const Header = ({className}) => {
     const theme = useTheme()
     return (
         <header className={className}>
-            <div className="border"></div>
-            <HeaderTitle theme={theme} className="title"/>
-            <HeaderButton text="About" theme={theme} path="/about" className="about" currPage/>
-            <HeaderButton text="Blog" theme={theme} path="/blog" className="blog"/>
-            <HeaderButton text="Contact" theme={theme} path="/contact" className="contact"/>
+            <Box className="border"></Box>
+            <Box component="span" className="title"><HeaderTitle theme={theme} /></Box>
+            <Box component="span" className="about"><HeaderButton text="About" theme={theme} path="/about" currPage/></Box>
+            <Box component="span" className="blog"><HeaderButton text="Blog" theme={theme} path="/blog" /></Box>
+            <Box component="span" className="contact"><HeaderButton text="Contact" theme={theme} path="/contact" /></Box>
         </header>
     )
     
@@ -37,12 +38,12 @@ export default styled(Header)`
     .about{
         position: absolute;
         bottom: 0;
-        right: 10rem;
+        right: 13.5rem;
     }
     .blog{
         position: absolute;
         bottom: 0;
-        right: 5rem;
+        right: 7rem;
     }
     .contact{
         position: absolute;

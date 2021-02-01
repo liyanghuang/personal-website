@@ -12,6 +12,7 @@
     "react": "latest",
     "react-dom": "latest",
     "react-helmet": "latest",
+    "react-icons": "^4.1.0",
     "styled-components": "^5.2.1"
   },
   "scripts": {
