@@ -2,11 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import HeaderTitle from './HeaderTitle'
 import HeaderButton from './HeaderButton'
-import { useTheme } from '@material-ui/core/styles'
 import {Box} from '@material-ui/core'
 
-const Header = ({className}) => {
-    const theme = useTheme()
+const Header = ({className, theme}) => {
     return (
         <header className={className}>
             <Box className="border"></Box>

@@ -9,14 +9,16 @@ import styled from 'styled-components';
 
 const Index = ({className}) => {
 
+  const theme = useTheme()
+
   return (
     <Box className={className}>
-      <Header/> 
+      <Header theme={theme}/> 
         <Box className="content-wrapper">
           <Box component="span" className="pic-content"><p>hello</p></Box>
           <Box component="span" className="text-content"><p>hello</p></Box>
         </Box>
-      <Footer/>
+      <Footer theme={theme}/>
     </Box>
   );
 }

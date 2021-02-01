@@ -1,45 +1,34 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useTheme, withStyles } from '@material-ui/core/styles'
 import { Box} from '@material-ui/core'
 import {Tooltip} from '@material-ui/core'
 import {FaGithubSquare, FaLinkedin} from 'react-icons/fa'
-import {RiMailFill} from 'react-icons/ri'
+import {ImMail3} from 'react-icons/im'
 
 
 const Footer = ({className}) => {
-    const theme = useTheme()
     return (
         <footer className={className}>
             <Box className="border"></Box>
+            <Box component="span" className="mail">
+                <Tooltip title="Mail" arrow placement="top">
+                    <a href="mailto: liyanghuang@ucla.edu" className="link"><ImMail3 color="white" size="1.3rem" /></a>
+                </Tooltip>
+            </Box>
             <Box component="span" className="icon">
                 <Tooltip title="GitHub" placement="top" arrow>
-                    <a href="https://www.google.com"><FaGithubSquare color="white" size="1.5rem" /></a>
+                    <a href="https://www.google.com" className="link"><FaGithubSquare color="white" size="1.5rem" /></a>
                 </Tooltip>
             </Box>
             <Box component="span" className="icon">
                 <Tooltip title="LinkedIn" arrow placement="top">
-                    <a href="https://www.google.com"><FaLinkedin color="white" size="1.5rem" /></a>
-                </Tooltip>
-            </Box>
-            <Box component="span" className="icon">
-                <Tooltip title="Mail" arrow placement="top">
-                    <a href="mailto: liyanghuang@ucla.edu" ><RiMailFill color="white" size="1.8rem" /></a>
+                    <a href="https://www.google.com" className="link"><FaLinkedin color="white" size="1.5rem" /></a>
                 </Tooltip>
             </Box>
         </footer>
     )
     
 }
-
-const StyledTooltip = withStyles(() => ({
-  tooltip: {
-    boxShadow: '0.3rem 0.3rem 1rem black',
-    fontSize: 20,
-    fontWeight: 700,
-    fontFamily: 'Asap',
-  },
-}))(Tooltip);
 
 export default styled(Footer)`
     position:relative;
@@ -59,5 +48,23 @@ export default styled(Footer)`
         margin-top: 1.25rem;
         margin-left: 0.5rem;
         margin-right: 0.5rem;
+    }
+    .mail{
+        display: inline-block;
+        vertical-align: middle;
+        margin-top: 1.25rem;
+        margin-left: 0.5rem;
+        margin-right: 0.63rem;
+    }
+    .link svg{
+        transition: transform 0.15s;
+        animation-name: fadeIn;
+        animation-duration: 0.3s;
+        animation-fill-mode: forwards;
+        fill: ${props => props.theme.palette.text.primary};
+    }
+    .link:hover svg{
+        fill: ${props => props.theme.palette.primary.main};
+
     }
 `
