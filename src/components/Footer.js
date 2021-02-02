@@ -40,7 +40,8 @@ export default styled(Footer)`
         position: absolute;
         width: 100%;
         top: 0rem;
-        border-bottom: 1px solid gray;
+        border-bottom: 1px solid rgb(125,125,125);
+        border-bottom: 1px solid rgba(255,255,255,.25);
     }
     .icon{
         display: inline-block;

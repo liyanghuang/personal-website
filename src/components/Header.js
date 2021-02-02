@@ -19,14 +19,15 @@ const Header = ({className, theme}) => {
 
 export default styled(Header)`
     position:relative;
-    height: 8rem;
+    height: 6rem;
     margin-left: 4rem;
     margin-right: 4rem;
     .border{
         position: absolute;
         width: 100%;
-        bottom: 0.1rem;
-        border-bottom: 1px solid gray;
+        bottom: 0.05rem;
+        border-bottom: 1px solid rgb(125,125,125);
+        border-bottom: 1px solid rgba(255,255,255,.25);
     }
     .title{
         position: absolute;

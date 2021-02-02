@@ -13,6 +13,15 @@ module.exports = {
     // If you want to use styled components you should add the plugin here.
     'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
   ],
   siteMetadata: {
     title: 'My page',

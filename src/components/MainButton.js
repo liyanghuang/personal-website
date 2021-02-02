@@ -10,7 +10,7 @@ const MainButton = ({className, text}) => {
 }
 
 export default styled(MainButton)`
-    width: 12rem;
+    width: 14rem;
     color: ${props => props.theme.palette.primary.main};
     background-color: ${props => props.theme.palette.background.default};
     transition: background 250ms, color 250ms;
