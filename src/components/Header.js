@@ -2,51 +2,57 @@ import React from 'react'
 import styled from 'styled-components'
 import HeaderTitle from './HeaderTitle'
 import HeaderButton from './HeaderButton'
-import {Box} from '@material-ui/core'
+import {Box, useMediaQuery, Grid, Hidden} from '@material-ui/core'
 
 const Header = ({className, theme}) => {
+
+    const matches = useMediaQuery(theme.breakpoints.up('md'))
+    const justification = (matches)? "flex-end" : "center"
+
     return (
-        <header className={className}>
+        <Grid container direction="row" alignItems="flex-end" justify="center" className={className} spacing={0}>
             <Box className="border"></Box>
-            <Box component="span" className="title"><HeaderTitle theme={theme} /></Box>
-            <Box component="span" className="about"><HeaderButton text="About" theme={theme} path="/about" currPage/></Box>
-            <Box component="span" className="blog"><HeaderButton text="Blog" theme={theme} path="/blog" /></Box>
-            <Box component="span" className="contact"><HeaderButton text="Contact" theme={theme} path="/contact" /></Box>
-        </header>
+            <Grid item container direction="row" className="header-container" justify="flex-start" md={1} xs={12}>
+                <Grid item className="title">
+                    <Hidden smDown>
+                        <HeaderTitle theme={theme} />
+                    </Hidden>
+                </Grid>
+            </Grid>
+            <Grid item container className="buttons-container" direction = "row" justify={justification} md={11} xs={12} spacing={4}>
+                <Grid item className="about">
+                    <HeaderButton text="About" theme={theme} path="/about" currPage/>
+                </Grid>
+                <Grid item className="blog">
+                    <HeaderButton text="Blog" theme={theme} path="/blog" />
+                </Grid>
+                <Grid item className="contact">
+                    <HeaderButton text="Contact" theme={theme} path="/contact" />
+                </Grid>
+            </Grid>
+        </Grid>
     )
-    
 }
 
 export default styled(Header)`
     position:relative;
     height: 6rem;
-    margin-left: 4rem;
-    margin-right: 4rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
     .border{
         position: absolute;
-        width: 100%;
         bottom: 0.05rem;
+        left: 4rem;
+        right: 4rem;
         border-bottom: 1px solid rgb(125,125,125);
         border-bottom: 1px solid rgba(255,255,255,.25);
     }
     .title{
-        position: absolute;
-        bottom: 0;
-        left: 0;
     }
     .about{
-        position: absolute;
-        bottom: 0;
-        right: 13.5rem;
     }
     .blog{
-        position: absolute;
-        bottom: 0;
-        right: 7rem;
     }
     .contact{
-        position: absolute;
-        bottom: 0;
-        right: 0;
     }
 `
