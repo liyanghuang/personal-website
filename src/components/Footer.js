@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Box, Grid} from '@material-ui/core'
 import {Tooltip} from '@material-ui/core'
 import {FaGithubSquare, FaLinkedin} from 'react-icons/fa'
-import {RiMailFill} from 'react-icons/ri'
+import {ImMail3} from 'react-icons/im'
 
 
 const Footer = ({className}) => {
@@ -12,7 +12,7 @@ const Footer = ({className}) => {
             <Box className="border"></Box>
             <Grid item className="icon">
                 <Tooltip title="Mail" arrow placement="top">
-                    <a href="mailto: liyanghuang@ucla.edu" className="link"><RiMailFill color="white" size="1.7rem" /></a>
+                    <a href="mailto: liyanghuang@ucla.edu" className="link"><ImMail3 className="mail" color="white" size="1.5rem" /></a>
                 </Tooltip>
             </Grid>
             <Grid item className="icon">
@@ -52,6 +52,11 @@ export default styled(Footer)`
         animation-duration: 0.3s;
         animation-fill-mode: forwards;
         fill: ${props => props.theme.palette.text.primary};
+    }
+    .link svg.mail{
+        padding-top: 0.09rem;
+        padding-bottom: 0.07rem;
+        padding-right: 0.17rem;
     }
     .link:hover svg{
         fill: ${props => props.theme.palette.primary.main};
