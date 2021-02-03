@@ -18,13 +18,13 @@ const Header = ({className, theme}) => {
             </Grid>
             <Grid item container className="buttons-container" direction = "row" justify="flex-end" md={11} xs={12} spacing={4}>
                 <Grid item className="about">
-                    <HeaderButton text="About" theme={theme} path="/about" currPage/>
+                    <HeaderButton text="About" theme={theme} to="/about"/>
                 </Grid>
                 <Grid item className="blog">
-                    <HeaderButton text="Blog" theme={theme} path="/blog" />
+                    <HeaderButton text="Blog" theme={theme} to="/blog" />
                 </Grid>
                 <Grid item className="contact">
-                    <HeaderButton text="Contact" theme={theme} path="/contact" />
+                    <HeaderButton text="Contact" theme={theme} to="/contact" />
                 </Grid>
             </Grid>
         </Grid>

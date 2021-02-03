@@ -12,17 +12,17 @@ const Footer = ({className}) => {
             <Box className="border"></Box>
             <Grid item className="icon">
                 <Tooltip title="Mail" arrow placement="top">
-                    <a href="mailto: liyanghuang@ucla.edu" className="link"><ImMail3 className="mail" color="white" size="1.5rem" /></a>
+                    <a href="mailto: liyanghuang@ucla.edu" aria-label="Mail" className="link"><ImMail3 className="mail" color="white" size="1.5rem" /></a>
                 </Tooltip>
             </Grid>
             <Grid item className="icon">
                 <Tooltip title="GitHub" placement="top" arrow>
-                    <a href="https://www.google.com" className="link"><FaGithubSquare color="white" size="1.5rem" /></a>
+                    <a href="https://www.github.com/liyanghuang" rel="noreferrer" aria-label="GitHub" target="_blank" className="link"><FaGithubSquare color="white" size="1.5rem" /></a>
                 </Tooltip>
             </Grid>
             <Grid item className="icon">
                 <Tooltip title="LinkedIn" arrow placement="top">
-                    <a href="https://www.google.com" className="link"><FaLinkedin color="white" size="1.5rem" /></a>
+                    <a href="https://www.linkedin.com/in/liyang-huang-767b28154/" aria-label="LinkedIn" rel="noreferrer" target="_blank" className="link"><FaLinkedin color="white" size="1.5rem" /></a>
                 </Tooltip>
             </Grid>
         </Grid>

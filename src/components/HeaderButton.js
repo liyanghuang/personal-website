@@ -3,9 +3,9 @@ import {Button} from '@material-ui/core'
 import styled from 'styled-components'
 import {Link} from 'gatsby'
 
-const HeaderButton = ({className, text, path}) => {
+const HeaderButton = ({className, text, to}) => {
     return (
-            <Button className={className} component={Link} to={path}>{text}</Button>
+            <Button className={className} component={Link} to={to}>{text}</Button>
     )
 }
 

@@ -16,7 +16,20 @@ const ThemeLink = ({className, to, children}) => {
     <Link to={to} className={className}>{children}</Link>
   )
 }
+
+const ALink = ({className, to, children}) => {
+  return (
+    <a target="_blank" rel="noreferrer" className={className} href={to}>{children}</a>
+  )
+}
 const StyledLink = styled(ThemeLink)`
+  text-decoration: none;
+  color: ${props => props.theme.palette.secondary.main};
+  :hover{
+    color:${props => props.theme.palette.primary.main};
+  }
+`
+const StyledALink = styled(ALink)`
   text-decoration: none;
   color: ${props => props.theme.palette.secondary.main};
   :hover{
@@ -49,15 +62,15 @@ const Index = ({className, data}) => {
             <Typography align="left" className="text">
               This is my website. I am very <StyledLink theme={theme} to="/about">cool</StyledLink> yup. I do the beep beep boop boop with my computer and then it
               runs a program. <StyledLink theme={theme} to="/blog">Beepadaboop</StyledLink>. Please hire me. I do cool things like make Minecraft mobs. Elon Musk.
-              Tesla. One Piece is very good. <StyledLink theme={theme} to="https://www.google.com">Code</StyledLink>. Click click.
+              Tesla. One Piece is very good. <StyledALink theme={theme} to="https://github.com/liyanghuang/personal-website">Code</StyledALink>. Click click.
             </Typography>
           </Grid>
           <Grid item container direction="row" className="button-box" justify="flex-start" alignItems="center" spacing={2}>
             <Grid item>
-              <MainButtonFill text="Read My Woes" theme={theme}/>
+              <MainButtonFill text="Read My Woes" theme={theme} to="/blog"/>
             </Grid>
             <Grid item>
-              <MainButton text="Hire My Broke Ass" theme={theme}/>
+              <MainButton text="Hire My Broke Ass" theme={theme} to="/contact"/>
             </Grid>
           </Grid>
         </Grid>

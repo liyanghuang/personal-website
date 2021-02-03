@@ -5,7 +5,7 @@ import {Link} from 'gatsby'
 
 const HeaderButton = ({className}) => {
     return (
-            <Button className={className} component={Link} to="/"><strong>LIYANG HUANG</strong></Button>
+        <Button className={className} component={Link} to="/"><strong>LIYANG HUANG</strong></Button>
     )
 }
 
