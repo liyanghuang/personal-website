@@ -87,6 +87,7 @@ export default styled(Index)`
   
   position: relative;
   min-height: 100vh;
+  overflow-x: hidden;
 
   .picture{
     border-radius:5%;
