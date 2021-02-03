@@ -6,7 +6,7 @@ import { useTheme } from '@material-ui/core/styles';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import styled from 'styled-components';
-import { Typography, useMediaQuery } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import Img from 'gatsby-image';
 import {graphql, Link} from 'gatsby'
 
@@ -27,10 +27,6 @@ const StyledLink = styled(ThemeLink)`
 const Index = ({className, data}) => {
 
   const theme = useTheme()
-  const matches = useMediaQuery(theme.breakpoints.up('md'))
-  const justification = (matches)? "flex-end" : "center"
-  const alignment = (matches)? "flex-start": "center"
-  const textAlign = (matches)? "left": "center"
 
   return (
     <Grid className={className} direction="column" container spacing={0}>
@@ -38,25 +34,25 @@ const Index = ({className, data}) => {
         <Header theme={theme}/> 
       </Grid>
       <Grid item container className="content-wrapper" direction="row" spacing={0}>
-        <Grid item container alignItems="center" justify={justification} className="pic-content" xs={12} md={5}>
+        <Grid item container alignItems="center" justify="flex-end" className="pic-content" xs={12} md={5}>
           <Grid item className="picture-box">
             <Img className="picture" fixed={data.file.childImageSharp.fixed} />
           </Grid>
         </Grid>
-        <Grid item container className="text-content" justify="center" alignItems={alignment} direction="column" spacing={2} xs={12} md={7}>
+        <Grid item container className="text-content" justify="center" alignItems="flex-start" direction="column" spacing={2} xs={12} md={7}>
           <Grid item className="header-box">
-            <Typography variant="h2" align={textAlign}>
+            <Typography variant="h2" align="left" className="text">
               <strong>Hello, I'm Liyang.</strong>
             </Typography>
           </Grid>
           <Grid item className="text-box">
-            <Typography align={textAlign}>
+            <Typography align="left" className="text">
               This is my website. I am very <StyledLink theme={theme} to="/about">cool</StyledLink> yup. I do the beep beep boop boop with my computer and then it
               runs a program. <StyledLink theme={theme} to="/blog">Beepadaboop</StyledLink>. Please hire me. I do cool things like make Minecraft mobs. Elon Musk.
               Tesla. One Piece is very good. <StyledLink theme={theme} to="https://www.google.com">Code</StyledLink>. Click click.
             </Typography>
           </Grid>
-          <Grid item container direction="row" className="button-box" justify={alignment} alignItems="center" spacing={2}>
+          <Grid item container direction="row" className="button-box" justify="flex-start" alignItems="center" spacing={2}>
             <Grid item>
               <MainButtonFill text="Read My Woes" theme={theme}/>
             </Grid>
@@ -134,6 +130,18 @@ export default styled(Index)`
     }
     .text-box{
       margin-left:1rem;
+    }
+    .pic-content{
+      justify-content: center;
+    }
+    .text-content{
+      align-items: center;
+    }
+    .text{
+      text-align: center;
+    }
+    .button-box{
+      justify-content: center;
     }
   }
 `

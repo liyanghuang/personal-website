@@ -2,24 +2,21 @@ import React from 'react'
 import styled from 'styled-components'
 import HeaderTitle from './HeaderTitle'
 import HeaderButton from './HeaderButton'
-import {Box, useMediaQuery, Grid, Hidden} from '@material-ui/core'
+import {Box, Grid, Hidden} from '@material-ui/core'
 
 const Header = ({className, theme}) => {
-
-    const matches = useMediaQuery(theme.breakpoints.up('md'))
-    const justification = (matches)? "flex-end" : "center"
 
     return (
         <Grid container direction="row" alignItems="flex-end" justify="center" className={className} spacing={0}>
             <Box className="border"></Box>
             <Grid item container direction="row" className="header-container" justify="flex-start" md={1} xs={12}>
                 <Grid item className="title">
-                    <Hidden smDown>
+                    <Hidden smDown implementation="css">
                         <HeaderTitle theme={theme} />
                     </Hidden>
                 </Grid>
             </Grid>
-            <Grid item container className="buttons-container" direction = "row" justify={justification} md={11} xs={12} spacing={4}>
+            <Grid item container className="buttons-container" direction = "row" justify="flex-end" md={11} xs={12} spacing={4}>
                 <Grid item className="about">
                     <HeaderButton text="About" theme={theme} path="/about" currPage/>
                 </Grid>
@@ -54,5 +51,10 @@ export default styled(Header)`
     .blog{
     }
     .contact{
+    }
+    @media only screen and (max-width: 960px){
+        .buttons-container{
+            justify-content: center;
+        }
     }
 `
