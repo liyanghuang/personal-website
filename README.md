@@ -1,30 +1,13 @@
-# Gatsby example
+#[liyanghuang.com] (https://liyanghuang.com)
 
-## How to use
+Personal website for Liyang Huang.
 
-Download the example [or clone the repo](https://github.com/mui-org/material-ui):
+This website was created with Gatsby.js, Material-UI, and Styled-Components.
 
-```sh
-curl https://codeload.github.com/mui-org/material-ui/tar.gz/master | tar -xz --strip=2  material-ui-master/examples/gatsby
-cd gatsby
-```
+##To Install
 
-Install it and run:
+1. `$ git clone https://github.com/liyanghuang/personal-website`
+2. `$ cd personal-website`
+3. `$ npm install`
+4. `$ gatsby develop`
 
-```sh
-npm install
-npm run develop
-```
-
-or:
-
-[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/mui-org/material-ui/tree/master/examples/gatsby)
-
-## The idea behind the example
-
-[Gatsby](https://github.com/gatsbyjs/gatsby) is a static site generator for React.
-
-## gatsby-theme-material-ui
-
-Looking for an example with less boilerplate but also less freedom?
-Check [`/examples/gatsby-theme`](https://github.com/mui-org/material-ui/tree/master/examples/gatsby-theme) out.

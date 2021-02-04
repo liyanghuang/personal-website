@@ -33,6 +33,7 @@ const Footer = ({className}) => {
 export default styled(Footer)`
     position:relative;
     height: 8vh;
+    padding-top: 1rem;
     .border{
         position: absolute;
         top: 0rem;

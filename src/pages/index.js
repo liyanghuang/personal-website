@@ -97,7 +97,8 @@ export const query = graphql`
 `
 
 export default styled(Index)`
-  
+
+    
   position: relative;
   min-height: 100vh;
   overflow-x: hidden;
@@ -158,4 +159,8 @@ export default styled(Index)`
       justify-content: center;
     }
   }
+  .loaded .header-box{
+    color: red;
+  }
+
 `
