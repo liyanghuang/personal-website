@@ -14,7 +14,7 @@ export default styled(MainButtonFill)`
     width: 14rem;
     background-color: ${props => props.theme.palette.primary.main};
     color: ${props => props.theme.palette.background.default};
-    transition: background 250ms, color 250ms;
+    transition: background 250ms, color 250ms, border 250ms;
     border-color:${props => props.theme.palette.primary.main};
     :hover{
         background-color: ${props => props.theme.palette.primary.dark};

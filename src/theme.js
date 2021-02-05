@@ -6,7 +6,8 @@ const theme = createMuiTheme({
   palette: {
     primary: {
       main: '#fab629',
-      dark: '#856015',
+      dark: '#b47901',
+      transparent: 'rgba(250, 180, 41, 0.1)'
     },
     secondary: {
       main: '#5791e7',
@@ -32,6 +33,11 @@ const theme = createMuiTheme({
       textTransform: 'none',
     },
   },
+  props: {
+    MuiButtonBase: {
+      disableRipple: true,
+    }
+  }
 });
 
 export default theme;

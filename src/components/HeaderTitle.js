@@ -5,7 +5,7 @@ import {Link} from 'gatsby'
 
 const HeaderButton = ({className}) => {
     return (
-        <Button className={className} component={Link} to="/"><strong>LIYANG HUANG</strong></Button>
+        <Button className={className} component={Link} to="/">LIYANG HUANG</Button>
     )
 }
 
@@ -20,8 +20,10 @@ export default styled(HeaderButton)`
     padding-right: 0rem;
     padding-top: 0.3rem;
     padding-bottom: 0.4rem;
+    font-weight: 600;
     :hover {
         background-color: transparent;
+        color: ${props => props.theme.palette.text.primary};
     }
     :before {
         content: '';
@@ -41,8 +43,8 @@ export default styled(HeaderButton)`
         padding: 0;
     }
     :active {
-        background: #000;
-        color: #fff;
+        background: transparent;
+        color: ${props => props.theme.palette.text.primary};
         transition: none;
     }
 `

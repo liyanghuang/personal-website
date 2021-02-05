@@ -4,7 +4,7 @@ import HeaderTitle from './HeaderTitle'
 import HeaderButton from './HeaderButton'
 import {Box, Grid, Hidden} from '@material-ui/core'
 
-const Header = ({className, theme}) => {
+const Header = ({className, theme, currPage}) => {
 
     return (
         <Grid container direction="row" alignItems="flex-end" justify="center" className={className} spacing={0}>
@@ -18,13 +18,13 @@ const Header = ({className, theme}) => {
             </Grid>
             <Grid item container className="buttons-container" direction = "row" justify="flex-end" md={11} xs={12} spacing={4}>
                 <Grid item className="about">
-                    <HeaderButton text="About" theme={theme} to="/about"/>
+                    <HeaderButton text="About" theme={theme} to="/about" currPage={currPage === "about"}/>
                 </Grid>
                 <Grid item className="blog">
-                    <HeaderButton text="Blog" theme={theme} to="/blog" />
+                    <HeaderButton text="Blog" theme={theme} to="/blog" currPage={currPage === "blog"}/>
                 </Grid>
                 <Grid item className="contact">
-                    <HeaderButton text="Contact" theme={theme} to="/contact" />
+                    <HeaderButton text="Contact" theme={theme} to="/contact" currPage={currPage === "contact"}/>
                 </Grid>
             </Grid>
         </Grid>

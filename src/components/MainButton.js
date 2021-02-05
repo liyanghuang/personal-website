@@ -14,10 +14,10 @@ export default styled(MainButton)`
     width: 14rem;
     color: ${props => props.theme.palette.primary.main};
     background-color: ${props => props.theme.palette.background.default};
-    transition: background 250ms, color 250ms;
+    transition: background 0.3s, color 0.3s, border 0.3s;
     border-color:${props => props.theme.palette.primary.main};
     :hover{
-        background-color: ${props => props.theme.palette.primary.main};
-        color: ${props => props.theme.palette.background.default};
+        background-color: ${props => props.theme.palette.primary.transparent};
+        color: ${props => props.theme.palette.primary.main};
     }
 `

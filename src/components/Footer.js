@@ -48,11 +48,8 @@ export default styled(Footer)`
         padding-top: 0.25rem;
     }
     .link svg{
-        transition: transform 0.15s;
-        animation-name: fadeIn;
-        animation-duration: 0.3s;
-        animation-fill-mode: forwards;
         fill: ${props => props.theme.palette.text.primary};
+        transition: 0.3s;
     }
     .link svg.mail{
         padding-top: 0.09rem;

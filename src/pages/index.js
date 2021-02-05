@@ -24,6 +24,7 @@ const ALink = ({className, to, children}) => {
 }
 const StyledLink = styled(ThemeLink)`
   text-decoration: none;
+  transition: 0.3s;
   color: ${props => props.theme.palette.secondary.main};
   :hover{
     color:${props => props.theme.palette.primary.main};
@@ -31,6 +32,7 @@ const StyledLink = styled(ThemeLink)`
 `
 const StyledALink = styled(ALink)`
   text-decoration: none;
+  transition: 0.3s;
   color: ${props => props.theme.palette.secondary.main};
   :hover{
     color:${props => props.theme.palette.primary.main};
@@ -104,7 +106,7 @@ export default styled(Index)`
   overflow-x: hidden;
 
   .picture{
-    border-radius:5%;
+    border-radius:3%;
   }
 
   .text-box{
@@ -120,7 +122,7 @@ export default styled(Index)`
   .button-box{
     width: 70%;
     margin-left: 3.5rem;
-    margin-top: 0.8rem;
+    margin-top: 0.4rem;
   }
 
   .header{

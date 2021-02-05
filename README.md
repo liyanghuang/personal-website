@@ -1,4 +1,4 @@
-# [liyanghuang.com] (https://liyanghuang.com)
+# [liyanghuang.com](https://liyanghuang.com)
 
 Personal website for Liyang Huang.
 

@@ -11,13 +11,15 @@ const HeaderButton = ({className, text, to}) => {
 
 
 export default styled(HeaderButton)`
-    color: ${props => props.theme.palette.text.primary};
+    color: ${props => (props.currPage)? 
+            props.theme.palette.primary.main : props.theme.palette.text.primary};
     font-size: 1.3rem;
     transition: 0.3s;
     line-height: 1.5;
     padding: 0.25rem;
     :hover {
-        background-color: ${props => props.theme.palette.background.default};
+        background-color: transparent;
+        color: ${props => props.theme.palette.primary.main};
     }
     :before {
         content: '';
@@ -31,16 +33,15 @@ export default styled(HeaderButton)`
         margin: 0 auto;
         width: ${props => (props.currPage)? 
             "100%" : "0"};
-        transition: 0.3s;
     }
-    :hover:before {
+    :active:before {
         border-bottom: 0.2rem solid ${props => props.theme.palette.primary.main};
         width: 100%;
         padding: 0;
     }
     :active {
-        background: #000;
-        color: #fff;
+        background: transparent;
+        color: ${props => props.theme.palette.primary.main};
         transition: none;
     }
 `

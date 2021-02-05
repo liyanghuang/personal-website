@@ -1,9 +1,10 @@
 import React from 'react'
 import {useTheme} from '@material-ui/core/styles'
-import {Grid} from '@material-ui/core'
+import {Grid, Box} from '@material-ui/core'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import styled from 'styled-components'
+import {graphql} from 'gatsby'
 
 function BlogListingTemplate({className, data}) {
 
@@ -12,9 +13,12 @@ function BlogListingTemplate({className, data}) {
     return (
         <Grid className={className} direction="column" container spacing={0}>
             <Grid item className="header">
-                <Header theme={theme}/> 
+                <Header theme={theme} currPage="blog"/> 
             </Grid>
             <Grid item container className="content-wrapper" direction="row" spacing={0}>
+                {data.allMarkdownRemark.edges.map(({node}) => (
+                    <Box key={node.id}>{node.id}</Box>
+                ))}
             </Grid>
             <Grid item className="footer">
                 <Footer theme={theme}/>
@@ -25,7 +29,7 @@ function BlogListingTemplate({className, data}) {
 
 export const Query= graphql`
     query BlogPosts ($Ids: [String]!){
-        allMarkdownRemark(filter: {id: {in: "$Ids"}}) {
+        allMarkdownRemark(filter: {id: {in: $Ids}}) {
             edges {
                 node {
                     id
@@ -42,8 +46,7 @@ export const Query= graphql`
     }
 `
 
-export default styled(Blog)`
-
+export default styled(BlogListingTemplate)`
     position: relative;
     min-height: 100vh;
     overflow-x: hidden;

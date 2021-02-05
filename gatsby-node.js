@@ -1,3 +1,2 @@
-const createPages = require('./src/CreatePages')
 
-exports.createPages = createPages
+exports.createPages = require('./src/CreatePages.js')

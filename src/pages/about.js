@@ -1,20 +1,42 @@
-import React from 'react';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import Link from '../components/Link';
-import Copyright from '../components/Copyright';
+import React from 'react'
+import {useTheme} from '@material-ui/core/styles'
+import {Grid} from '@material-ui/core'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+import styled from 'styled-components'
 
-export default function About() {
-  return (
-    <Container maxWidth="sm">
-      <Box my={4}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Gatsby v4-beta example
-        </Typography>
-        <Link to="/">Go to the main page</Link>
-        <Copyright />
-      </Box>
-    </Container>
-  );
+function About({className}) {
+
+    const theme = useTheme()
+
+    return (
+        <Grid className={className} direction="column" container spacing={0}>
+            <Grid item className="header">
+                <Header theme={theme} currPage="about"/> 
+            </Grid>
+            <Grid item container className="content-wrapper" direction="row" spacing={0}>
+            </Grid>
+            <Grid item className="footer">
+                <Footer theme={theme}/>
+            </Grid>
+        </Grid>
+    )
 }
+
+export default styled(About)`
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    .header{
+        height: 12vh;
+    }
+    .footer{
+        height: 8vh;
+    }
+    .content-wrapper{
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        min-height: 80vh;
+    }
+`
