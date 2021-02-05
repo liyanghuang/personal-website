@@ -1,7 +1,3 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/node-apis/
- */
+const createPages = require('./src/CreatePages')
 
-// You can delete this file if you're not using it
+exports.createPages = createPages

@@ -5,7 +5,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import styled from 'styled-components'
 
-function Blog({className, data}) {
+function BlogListingTemplate({className, data}) {
 
     const theme = useTheme()
 
@@ -22,6 +22,25 @@ function Blog({className, data}) {
         </Grid>
     )
 }
+
+export const Query= graphql`
+    query BlogPosts ($Ids: [String]!){
+        allMarkdownRemark(filter: {id: {in: "$Ids"}}) {
+            edges {
+                node {
+                    id
+                    frontmatter {
+                        title
+                        path
+                        date
+                        author
+                        description
+                    }
+                }
+            }
+        }
+    }
+`
 
 export default styled(Blog)`
 
