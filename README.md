@@ -10,3 +10,7 @@ This website was created with Gatsby.js, Material-UI, and Styled-Components.
 2. `$ cd personal-website`
 3. `$ npm install`
 4. `$ gatsby develop`
+
+## To Build
+
+Instead of running `$ gatsby develop` run `$ gatsby build` then `$ gatsby serve`
