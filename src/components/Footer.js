@@ -33,10 +33,10 @@ const Footer = ({className}) => {
 export default styled(Footer)`
     position:relative;
     height: 8vh;
-    padding-top: 1rem;
+    padding-top: 1.25rem;
     .border{
         position: absolute;
-        top: 0rem;
+        top: 0.5rem;
         left: 4rem;
         right: 4rem;
         border-bottom: 1px solid rgb(125,125,125);

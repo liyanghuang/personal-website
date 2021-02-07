@@ -33,7 +33,7 @@ const Header = ({className, theme, currPage}) => {
 
 export default styled(Header)`
     position:relative;
-    height: 6rem;
+    height: 12vh;
     padding-left: 3rem;
     padding-right: 3rem;
     .border{

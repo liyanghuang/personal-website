@@ -8,36 +8,9 @@ import Footer from '../components/Footer';
 import styled from 'styled-components';
 import { Typography } from '@material-ui/core';
 import Img from 'gatsby-image';
-import {graphql, Link} from 'gatsby'
-
-
-const ThemeLink = ({className, to, children}) => {
-  return (
-    <Link to={to} className={className}>{children}</Link>
-  )
-}
-
-const ALink = ({className, to, children}) => {
-  return (
-    <a target="_blank" rel="noreferrer" className={className} href={to}>{children}</a>
-  )
-}
-const StyledLink = styled(ThemeLink)`
-  text-decoration: none;
-  transition: 0.3s;
-  color: ${props => props.theme.palette.secondary.main};
-  :hover{
-    color:${props => props.theme.palette.primary.main};
-  }
-`
-const StyledALink = styled(ALink)`
-  text-decoration: none;
-  transition: 0.3s;
-  color: ${props => props.theme.palette.secondary.main};
-  :hover{
-    color:${props => props.theme.palette.primary.main};
-  }
-`
+import {graphql} from 'gatsby';
+import StyledLink from '../components/StyledLink';
+import StyledALink from '../components/StyledALink';
 
 const Index = ({className, data}) => {
 
