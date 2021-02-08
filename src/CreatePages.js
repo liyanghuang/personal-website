@@ -9,25 +9,34 @@ const createPages = async({graphql, actions }) => {
             allMarkdownRemark {
                 edges {
                     node {
-                        id
+                        frontmatter{
+                            postNumber
+                        }
                     }
                 }
             }
         }
     `)
 
-    ids = data.allMarkdownRemark.edges.map(e => e.node.id)
+    const postNumbers = data.allMarkdownRemark.edges.map(e => e.node.frontmatter.postNumber).sort((a,b) => parseInt(b) - parseInt(a))
+    const postsPerPage = 4;
+    const numPages = Math.ceil(postNumbers.length / postsPerPage)
 
+    for (let i = 0; i < numPages; i+= 1) {
 
-    console.log('craeting page')
+        postsThisPage = postNumbers.slice(i*postsPerPage, (i+ 1)*postsPerPage);
+        const pathString = (i === 0)? '/blog/' : `/blog/page/${i+1}/`;
 
-    createPage({
-        path: '/blog/',
-        component: path.resolve('./src/templates/blog-listings-template.js'),
-        context: {
-            Ids: ids,
-        }
-    })
+        createPage({
+            path: pathString,
+            component: path.resolve('./src/templates/blog-listings-template.js'),
+            context: {
+                postids: postsThisPage,
+                currpage: i+1,
+                numpages: numPages
+            }
+        });
+    }
 }
 
 module.exports = createPages

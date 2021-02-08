@@ -9,11 +9,16 @@ import Img from 'gatsby-image'
 import StyledLink from '../components/StyledLink'
 import HeaderButton from '../components/HeaderButton'
 import PostCard from '../components/PostCard'
+import PageNav from '../components/PageNav'
 
 
-function BlogListingTemplate({className, data}) {
+function BlogListingTemplate({className, data, pageContext}) {
+
+    const {postids, currpage, numpages} = pageContext
 
     const theme = useTheme()
+    let {edges} = data.allMarkdownRemark
+    edges = postids.map(thisID => edges.filter(e => e.node.frontmatter.postNumber === thisID)[0]);
 
     return (
         <Grid className={className} direction="column" container spacing={0}>
@@ -48,9 +53,17 @@ function BlogListingTemplate({className, data}) {
                     </Grid>
                 </Grid>
                 <Grid item container className="post-content" justify="flex-start" alignItems="flex-start" direction="column" xs={12} md={8}>
-                    <Grid item className="full-width">
-                        <PostCard theme={theme}/>
-                    </Grid>
+                    {edges.map( ({node}) => (
+                        <Grid item className="full-width" key={node.id}>
+                            <PostCard  theme={theme} content={{
+                                date: node.frontmatter.date,
+                                title: node.frontmatter.title,
+                                description: node.frontmatter.description,
+                                categories: "temp"
+                            }}/>
+                        </Grid>
+                    ))}
+                    <PageNav theme={theme} currPage={currpage} numPages={numpages}/>
                 </Grid>
             </Grid>
             <Grid item className="footer">
@@ -61,8 +74,8 @@ function BlogListingTemplate({className, data}) {
 }
 
 export const Query= graphql`
-    query BlogPosts ($Ids: [String]!){
-        allMarkdownRemark(filter: {id: {in: $Ids}}) {
+    query BlogPosts ($postids: [String]!){
+        allMarkdownRemark(filter: {frontmatter:{ postNumber: {in: $postids}}}) {
             edges {
                 node {
                     id
@@ -72,6 +85,7 @@ export const Query= graphql`
                         date
                         author
                         description
+                        postNumber
                     }
                 }
             }
@@ -125,6 +139,7 @@ export default styled(BlogListingTemplate)`
     .side-content{
         border-right: 1px solid rgb(125,125,125);
         border-right: 1px solid rgba(255,255,255, 0.25);
+        max-height: 75vh;
     }
 
     .header{
