@@ -3,20 +3,21 @@ import {Button} from '@material-ui/core'
 import styled from 'styled-components'
 import {Link} from 'gatsby'
 
-const HeaderButton = ({className, text, to, size}) => {
+const NavButton = ({className, text, to, size}) => {
     return (
             <Button className={className} component={Link} to={to}>{text}</Button>
     )
 }
 
 
-export default styled(HeaderButton)`
+export default styled(NavButton)`
     color: ${props => (props.currPage)? 
             props.theme.palette.primary.main : props.theme.palette.text.primary};
     font-size: ${props => props.size};
     transition: 0.3s;
     line-height: 1.5;
     padding: 0.25rem;
+    min-width: 1rem;
     :hover {
         background-color: transparent;
         color: ${props => props.theme.palette.primary.main};

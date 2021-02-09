@@ -5,7 +5,7 @@ import StyledLink from '../components/StyledLink'
 
 function PostCard({className, theme, content}) {
 
-    const {date, description, title, categories} = content
+    const {date, description, title, category, path} = content
 
     return (
         <Grid className={className} container direction="column">
@@ -13,7 +13,7 @@ function PostCard({className, theme, content}) {
                 <Grid item container justify="flex-start" className="title">
                     <Grid item>
                         <Typography variant="h4" className="title-text">
-                            {title}                        
+                            <StyledLink className="link" theme={theme} to={path}>{title}</StyledLink>                       
                         </Typography>
                     </Grid>
                 </Grid>
@@ -34,12 +34,7 @@ function PostCard({className, theme, content}) {
             <Grid container item direction="row" justify="flex-start" alignItems="flex-start" spacing={1}>
                 <Grid item>
                     <Typography>
-                        <StyledLink theme={theme} to="/blog">{categories}</StyledLink>
-                    </Typography>
-                </Grid>
-                <Grid item>
-                    <Typography>
-                        <StyledLink theme={theme} to="/blog">Category</StyledLink>
+                        <StyledLink theme={theme} to="/blog">{category}</StyledLink>
                     </Typography>
                 </Grid>
             </Grid>
@@ -60,5 +55,14 @@ padding-right: 10rem;
 }
 .date{
     width: 50%;
+}
+.link{
+    color: ${props=> props.theme.palette.text.primary};
+}
+.link:hover{
+    color: ${props=> props.theme.palette.primary.main};
+}
+.link:active{
+    color: ${props=> props.theme.palette.primary.main};
 }
 `

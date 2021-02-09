@@ -11,6 +11,7 @@ const createPages = async({graphql, actions }) => {
                     node {
                         frontmatter{
                             postNumber
+                            path
                         }
                     }
                 }
@@ -19,7 +20,7 @@ const createPages = async({graphql, actions }) => {
     `)
 
     const postNumbers = data.allMarkdownRemark.edges.map(e => e.node.frontmatter.postNumber).sort((a,b) => parseInt(b) - parseInt(a))
-    const postsPerPage = 4;
+    const postsPerPage = 8;
     const numPages = Math.ceil(postNumbers.length / postsPerPage)
 
     for (let i = 0; i < numPages; i+= 1) {
@@ -37,6 +38,14 @@ const createPages = async({graphql, actions }) => {
             }
         });
     }
+
+    data.allMarkdownRemark.edges.forEach(e => {
+        createPage({
+            path: e.node.frontmatter.path,
+            component: path.resolve('./src/templates/blog-post-template.js')
+        })
+    })
+
 }
 
 module.exports = createPages

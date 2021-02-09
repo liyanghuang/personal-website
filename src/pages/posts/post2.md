@@ -5,6 +5,7 @@ title: "My Second Post"
 author: "Liyang Huang"
 description: "Second post man it's good to be back lmao wow"
 postNumber: "2"
+category: "Reflections"
 ---
 
 testing

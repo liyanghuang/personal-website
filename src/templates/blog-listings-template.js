@@ -42,13 +42,13 @@ function BlogListingTemplate({className, data, pageContext}) {
                     </Grid>
                     <Grid item container className="button-box" direction="column" justify="center" alignItems="center">
                         <Grid item>
-                            <HeaderButton theme={theme} to="/blog" text="Recent" currPage/>
+                            <HeaderButton theme={theme} to="/blog" text="Recent" size="1rem" currPage/>
                         </Grid>
                         <Grid item>
-                            <HeaderButton theme={theme} to="/blog" text="Reflections" />
+                            <HeaderButton theme={theme} to="/blog" text="Reflections" size="1rem" />
                         </Grid>
                         <Grid item>
-                            <HeaderButton theme={theme} to="/blog" text="Tech" />
+                            <HeaderButton theme={theme} to="/blog" text="Tech" size="1rem" />
                         </Grid>
                     </Grid>
                 </Grid>
@@ -59,7 +59,8 @@ function BlogListingTemplate({className, data, pageContext}) {
                                 date: node.frontmatter.date,
                                 title: node.frontmatter.title,
                                 description: node.frontmatter.description,
-                                categories: "temp"
+                                category: node.frontmatter.category,
+                                path: node.frontmatter.path
                             }}/>
                         </Grid>
                     ))}
@@ -86,6 +87,7 @@ export const Query= graphql`
                         author
                         description
                         postNumber
+                        category
                     }
                 }
             }
@@ -139,7 +141,7 @@ export default styled(BlogListingTemplate)`
     .side-content{
         border-right: 1px solid rgb(125,125,125);
         border-right: 1px solid rgba(255,255,255, 0.25);
-        max-height: 75vh;
+        max-height: 72vh;
     }
 
     .header{

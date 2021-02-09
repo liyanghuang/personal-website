@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import {Grid, Typography} from '@material-ui/core'
 import StyledLink from '../components/StyledLink'
-import * as path from 'path'
+import NavButton from './NavButton'
 
 function PageNav({theme, currPage, className, numPages}) {
 
@@ -12,10 +12,18 @@ function PageNav({theme, currPage, className, numPages}) {
     console.log(currPage)
     console.log(numPages)
 
+    let pageButtons = []
+    for(let i = Math.max(1, currPage-2); i <= Math.min(numPages, currPage + 2); i++) {
+        // 5 buttons
+        pageButtons.push(<Grid item>
+            <NavButton className="page-button" theme={theme} text={i} to={(i === 1)? "/blog/" : `/blog/page/${i}`} currPage={(i === currPage)} size="1rem"/>
+        </Grid>)
+    }
+
 
 
     return (
-        <Grid className={className} container direction="row" justify="center" alignItems="center">
+        <Grid className={className} container direction="row" justify="center" alignItems="center" spacing={2}>
             <Grid item>
                 <Typography variant="h5" className="link-text">
                     {(previousPage === "disabled")? "<" : 
@@ -23,6 +31,7 @@ function PageNav({theme, currPage, className, numPages}) {
                     }
                 </Typography>
             </Grid>
+            {pageButtons}
             <Grid item>
                 <Typography variant="h5" className="link-text">
                     {(nextPage === "disabled")? ">" : 
@@ -36,6 +45,10 @@ function PageNav({theme, currPage, className, numPages}) {
 }
 
 export default styled(PageNav)`
+    padding-right: 5rem;
+    .page-button{
+        width: 50%;
+    }
     .link{
         color: ${props=> props.theme.palette.text.primary};
     }
