@@ -5,7 +5,7 @@ title: "My Eighth Post"
 author: "Liyang Huang"
 description: "First post man it's good to be back lmao wow"
 postNumber: "8"
-category: "Reflections"
+category: "Tech"
 ---
 
 testing

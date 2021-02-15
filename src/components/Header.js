@@ -18,7 +18,7 @@ const Header = ({className, theme, currPage}) => {
             </Grid>
             <Grid item container className="buttons-container" direction = "row" justify="flex-end" md={11} xs={12} spacing={4}>
                 <Grid item className="about">
-                    <HeaderButton text="About" theme={theme} to="/about" currPage={currPage === "about"} size="1.3rem"/>
+                    <HeaderButton text="About" theme={theme} to="/" currPage={currPage === "default"} size="1.3rem"/>
                 </Grid>
                 <Grid item className="blog">
                     <HeaderButton text="Blog" theme={theme} to="/blog" currPage={currPage === "blog"} size="1.3rem"/>

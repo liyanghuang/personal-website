@@ -6,6 +6,8 @@ import StyledLink from '../components/StyledLink'
 function PostCard({className, theme, content}) {
 
     const {date, description, title, category, path} = content
+    let categoryAddition= (category === "Reflections")? "reflections/" : (category === "Tech")? "tech/" : ""
+
 
     return (
         <Grid className={className} container direction="column">
@@ -34,7 +36,7 @@ function PostCard({className, theme, content}) {
             <Grid container item direction="row" justify="flex-start" alignItems="flex-start" spacing={1}>
                 <Grid item>
                     <Typography>
-                        <StyledLink theme={theme} to="/blog">{category}</StyledLink>
+                        <StyledLink theme={theme} to={`/blog/${categoryAddition}`}>{category}</StyledLink>
                     </Typography>
                 </Grid>
             </Grid>
@@ -64,5 +66,9 @@ padding-right: 10rem;
 }
 .link:active{
     color: ${props=> props.theme.palette.primary.main};
+}
+@media only screen and (max-width: 960px){
+    padding-left: 5rem;
+    padding-right: 5rem;
 }
 `

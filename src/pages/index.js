@@ -19,7 +19,7 @@ const Index = ({className, data}) => {
   return (
     <Grid className={className} direction="column" container spacing={0}>
       <Grid item className="header">
-        <Header theme={theme}/> 
+        <Header theme={theme} currPage="default"/> 
       </Grid>
       <Grid item container className="content-wrapper" direction="row" spacing={0}>
         <Grid item container alignItems="center" justify="flex-end" className="pic-content" xs={12} md={5}>
@@ -35,7 +35,7 @@ const Index = ({className, data}) => {
           </Grid>
           <Grid item className="text-box">
             <Typography align="left" className="text">
-              This is my website. I am very <StyledLink theme={theme} to="/about">cool</StyledLink> yup. I do the beep beep boop boop with my computer and then it
+              This is my website. I am very <StyledLink theme={theme} to="/blog">cool</StyledLink> yup. I do the beep beep boop boop with my computer and then it
               runs a program. <StyledLink theme={theme} to="/blog">Beepadaboop</StyledLink>. Please hire me. I do cool things like make Minecraft mobs. Elon Musk.
               Tesla. One Piece is very good. <StyledALink theme={theme} to="https://github.com/liyanghuang/personal-website">Code</StyledALink>. Click click.
             </Typography>

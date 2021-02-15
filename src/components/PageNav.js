@@ -4,10 +4,12 @@ import {Grid, Typography} from '@material-ui/core'
 import StyledLink from '../components/StyledLink'
 import NavButton from './NavButton'
 
-function PageNav({theme, currPage, className, numPages}) {
+function PageNav({theme, currPage, className, numPages, category}) {
 
-    const previousPage = (currPage === 1)? "disabled" : (currPage - 1 === 1)? "/blog/" : `/blog/page/${currPage - 1}`
-    const nextPage = (currPage === numPages)? "disabled" : `/blog/page/${currPage + 1}`
+    let categoryAddition= (category === "default")? "" : (category === "reflections")? "reflections/" : (category === "tech")? "tech/" : ""
+
+    const previousPage = (currPage === 1)? "disabled" : (currPage - 1 === 1)? `/blog/${categoryAddition}` : `/blog/${categoryAddition}page/${currPage - 1}`
+    const nextPage = (currPage === numPages)? "disabled" : `/blog/${categoryAddition}page/${currPage + 1}`
 
     console.log(currPage)
     console.log(numPages)
@@ -16,7 +18,7 @@ function PageNav({theme, currPage, className, numPages}) {
     for(let i = Math.max(1, currPage-2); i <= Math.min(numPages, currPage + 2); i++) {
         // 5 buttons
         pageButtons.push(<Grid item>
-            <NavButton className="page-button" theme={theme} text={i} to={(i === 1)? "/blog/" : `/blog/page/${i}`} currPage={(i === currPage)} size="1rem"/>
+            <NavButton className="page-button" theme={theme} text={i} to={(i === 1)? `/blog/${categoryAddition}` : `/blog/${categoryAddition}page/${i}`} currPage={(i === currPage)} size="1rem"/>
         </Grid>)
     }
 
@@ -39,7 +41,6 @@ function PageNav({theme, currPage, className, numPages}) {
                     }
                 </Typography>
             </Grid>
-
         </Grid>
     )
 }
@@ -61,5 +62,8 @@ export default styled(PageNav)`
     .link-text{
         color: ${props=> props.theme.palette.text.secondary};
         cursor: default;
+    }
+    @media only screen and (max-width: 960px){
+        padding-right:0rem;
     }
 `
