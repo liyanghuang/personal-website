@@ -6,6 +6,7 @@ author: "Liyang Huang"
 description: "First post man it's good to be back lmao wow"
 postNumber: "10"
 category: "Tech"
+subtitle: "something something tech something"
 ---
 
 testing

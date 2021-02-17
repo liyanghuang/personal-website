@@ -36,6 +36,7 @@ export default styled(Header)`
     height: 12vh;
     padding-left: 3rem;
     padding-right: 3rem;
+    width: 100vw;
     .border{
         position: absolute;
         bottom: 0.05rem;

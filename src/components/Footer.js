@@ -34,6 +34,7 @@ export default styled(Footer)`
     position:relative;
     height: 8vh;
     padding-top: 1.25rem;
+    width: 100vw;
     .border{
         position: absolute;
         top: 0.5rem;

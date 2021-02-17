@@ -21,7 +21,7 @@ const createPages = async({graphql, actions }) => {
     `)
 
     const postNumbers = data.allMarkdownRemark.edges.map(e => e.node.frontmatter.postNumber).sort((a,b) => parseInt(b) - parseInt(a))
-    const postsPerPage = 4;
+    const postsPerPage = 8;
     const numPages = Math.ceil(postNumbers.length / postsPerPage)
 
     for (let i = 0; i < numPages; i+= 1) {
@@ -84,9 +84,25 @@ const createPages = async({graphql, actions }) => {
     }
 
     data.allMarkdownRemark.edges.forEach(e => {
+        let extraPosts = data.allMarkdownRemark.edges.filter(edge => ((edge.node.frontmatter.category === e.node.frontmatter.category) && (edge.node.frontmatter.postNumber != e.node.frontmatter.postNumber)))
+        let extraPostsNums = extraPosts.map(e => e.node.frontmatter.postNumber)
+        let relatedPosts = []
+        for(let i = 0; i < Math.min(extraPosts.length, 3); i++){
+            let rand = Math.floor(Math.random() * extraPosts.length)
+            if(!relatedPosts.includes(extraPostsNums[rand])) {
+                relatedPosts.push(extraPostsNums[rand])
+            }
+            else {
+                i -= 1
+            }
+        }
         createPage({
             path: e.node.frontmatter.path,
-            component: path.resolve('./src/templates/blog-post-template.js')
+            component: path.resolve('./src/templates/blog-post-template.js'),
+            context: {
+                postid: e.node.frontmatter.postNumber,
+                relatedPosts: relatedPosts,
+            }
         })
     })
 
