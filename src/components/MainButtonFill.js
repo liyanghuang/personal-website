@@ -19,5 +19,6 @@ export default styled(MainButtonFill)`
     :hover{
         background-color: ${props => props.theme.palette.primary.dark};
         border-color:${props => props.theme.palette.primary.dark};
+        color: ${props => props.theme.palette.background.default};
     }
 `

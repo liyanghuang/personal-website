@@ -5,7 +5,7 @@ import StyledLink from '../components/StyledLink'
 
 function RelatedPost({className, theme, content}) {
 
-    const {date, description, title, category, path} = content
+    const {date, subtitle, title, category, path} = content
     let categoryAddition= (category === "Reflections")? "reflections/" : (category === "Tech")? "tech/" : ""
 
 
@@ -20,14 +20,20 @@ function RelatedPost({className, theme, content}) {
             </Grid>
             <Grid container item direction="row" justify="flex-start" alignItems="flex-start">
                 <Typography>
-                    {description}Short description (1-2 lines) about the post choo choo chupa chups clickity clack
-                    I am just trying to fill the line so it looks realistic ohohoho I did it.
+                    {subtitle}
                 </Typography>
             </Grid>
             <Grid container item direction="row" justify="flex-start" alignItems="flex-start" spacing={1}>
                 <Grid item>
                     <Typography>
                         <StyledLink theme={theme} to={`/blog/${categoryAddition}`}>{category}</StyledLink>
+                    </Typography>
+                </Grid>
+            </Grid>
+            <Grid container item direction="row" justify="flex-start" alignItems="flex-start">
+                <Grid item>
+                    <Typography color="primary" variant="body2">
+                        {date}
                     </Typography>
                 </Grid>
             </Grid>

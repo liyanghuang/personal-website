@@ -1,6 +1,6 @@
 # [liyanghuang.com](https://liyanghuang.com)
 
-Personal website for Liyang Huang.
+Personal website, portfolio, and blog for Liyang Huang.
 
 This website was created with Gatsby.js, Material-UI, and Styled-Components.
 

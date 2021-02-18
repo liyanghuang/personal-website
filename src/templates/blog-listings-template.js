@@ -92,11 +92,11 @@ export const Query= graphql`
                 }
             }
         }
-        file(relativePath: { eq: "dog.png" }) {
+        file(relativePath: { eq: "rockProf.jpg" }) {
             childImageSharp {
             # Specify the image processing specifications right in the query.
             # Makes it trivial to update as your page's design changes.
-                fixed (width: 200){
+                fixed (width: 200, height:200, cropFocus: CENTER){
                     ...GatsbyImageSharpFixed
                 }
             }

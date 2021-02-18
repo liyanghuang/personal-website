@@ -22,7 +22,7 @@ const theme = createMuiTheme({
       default: '#252126',
     },
     text:{
-      primary: '#FFF',
+      primary: '#a0a0a0',
       secondary: '#808080',
     }
   },
@@ -37,7 +37,21 @@ const theme = createMuiTheme({
     MuiButtonBase: {
       disableRipple: true,
     }
-  }
+  },
+  overrides: {
+    MuiCssBaseline: {
+      '@global': {
+        a: {
+          color: '#fab629',
+          transition: '0.3s',
+          textDecoration: 'none',
+        },
+        'a:hover': {
+          color: '#5791e7',
+        }
+      },
+    },
+  },
 });
 
 export default theme;

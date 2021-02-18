@@ -29,8 +29,7 @@ function PostCard({className, theme, content}) {
             </Grid>
             <Grid container item direction="row" justify="flex-start" alignItems="flex-start">
                 <Typography>
-                    {description}Short description (1-2 lines) about the post choo choo chupa chups clickity clack
-                    I am just trying to fill the line so it looks realistic ohohoho I did it.
+                    {description}
                 </Typography>
             </Grid>
             <Grid container item direction="row" justify="flex-start" alignItems="flex-start" spacing={1}>

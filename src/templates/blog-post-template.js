@@ -1,6 +1,6 @@
 import React from 'react'
 import {useTheme} from '@material-ui/core/styles'
-import {Grid, Typography} from '@material-ui/core'
+import {Grid, Typography, Container} from '@material-ui/core'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import styled from 'styled-components'
@@ -41,7 +41,9 @@ function BlogPostTemplate({className, data}) {
                     </Grid>
                 </Grid>
                 <Grid item className="post-content">
-                    <Typography variant="h6"><div dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}></div></Typography>
+                    <Container maxWidth="md">
+                    <Typography variant="h5"><div dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}></div></Typography>
+                    </Container>
                 </Grid>
                 <Grid item container className="related-posts" direction="row" alignItems="center">
                     <Grid item className="related-posts-text" md={2} sm={12}>
@@ -53,7 +55,7 @@ function BlogPostTemplate({className, data}) {
                                 <RelatedPost className="related-post" theme={theme} content={{
                                     date: node.frontmatter.date,
                                     title: node.frontmatter.title,
-                                    description: node.frontmatter.description,
+                                    subtitle: node.frontmatter.subtitle,
                                     category: node.frontmatter.category,
                                     path: node.frontmatter.path
                                 }}/>
@@ -97,11 +99,11 @@ export const Query = graphql`
                 subtitle
             }
         }
-        file(relativePath: { eq: "dog.png" }) {
+        file(relativePath: { eq: "sitProf.png" }) {
             childImageSharp {
             # Specify the image processing specifications right in the query.
             # Makes it trivial to update as your page's design changes.
-                fixed (width: 100){
+                fixed (width: 100, height: 120){
                     ...GatsbyImageSharpFixed
                 }
             }
@@ -114,7 +116,7 @@ export const Query = graphql`
                         category
                         title
                         date
-                        description
+                        subtitle
                     }
                 }
             }
