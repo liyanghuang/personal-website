@@ -13,7 +13,7 @@ import RelatedPost from '../components/RelatedPost'
 function BlogPostTemplate({className, data}) {
 
     const theme = useTheme()
-    let categoryAddition= (data.markdownRemark.frontmatter.category === "Reflections")? "reflections/" : (data.markdownRemark.frontmatter.category === "Tech")? "tech/" : ""
+    let categoryAddition= (data.markdownRemark.frontmatter.category === "Reflections")? "reflections/" : (data.markdownRemark.frontmatter.category === "Reviews")? "reviews/" : ""
 
 
     return (
@@ -24,19 +24,19 @@ function BlogPostTemplate({className, data}) {
             <Grid item container className="content-wrapper" direction="column" spacing={0}>
                 <Grid item container className="post-meta" direction="column" spacing={0}>
                     <Grid item className="title-text">
-                        <Typography variant="h3"><strong>{data.markdownRemark.frontmatter.title}</strong></Typography>
+                        <Typography variant="h2"><strong>{data.markdownRemark.frontmatter.title}</strong></Typography>
                     </Grid>
                     <Grid item className="subtitle-text">
-                        <Typography variant="h5"><strong>{data.markdownRemark.frontmatter.subtitle}</strong></Typography>
+                        <Typography variant="h4"><strong>{data.markdownRemark.frontmatter.subtitle}</strong></Typography>
                     </Grid>
                     <Grid item container className="category-date" direction="row">
                         <Grid item className="category">
-                            <Typography variant="body1" color="primary">
+                            <Typography variant="h6" color="primary">
                                 <StyledLink theme={theme} to={`/blog/${categoryAddition}`}>{data.markdownRemark.frontmatter.category}</StyledLink>
                             </Typography>
                         </Grid>
                         <Grid item className="date">
-                            <Typography variant="body1" color="primary">{data.markdownRemark.frontmatter.date}</Typography>
+                            <Typography variant="h6" color="primary">{data.markdownRemark.frontmatter.date}</Typography>
                         </Grid>
                     </Grid>
                 </Grid>
@@ -47,7 +47,7 @@ function BlogPostTemplate({className, data}) {
                 </Grid>
                 <Grid item container className="related-posts" direction="row" alignItems="center">
                     <Grid item className="related-posts-text" md={2} sm={12}>
-                            <Typography variant="h5"><strong>RELATED POSTS</strong></Typography>
+                            <Typography variant="h5"><strong><StyledLink isTextColor theme={theme} to={`/blog/${categoryAddition}`}>RELATED POSTS</StyledLink></strong></Typography>
                     </Grid>
                     <Grid container item direction="row" md={10} sm={12}>
                         {data.allMarkdownRemark.edges.map( ({node}) => (
@@ -65,7 +65,7 @@ function BlogPostTemplate({className, data}) {
                 </Grid>
                 <Grid item container className="about-section" direction = "row" alignItems="center">
                     <Grid item className="about-title">
-                        <Typography variant="h5" className="about-author-text"><strong >ABOUT THE AUTHOR</strong></Typography>
+                        <Typography variant="h5" className="about-author-text"><strong><StyledLink isTextColor theme={theme} to="/">ABOUT THE AUTHOR</StyledLink></strong></Typography>
                     </Grid>
                     <Grid item container className="about-picture" justify="center">
                         <Grid item>

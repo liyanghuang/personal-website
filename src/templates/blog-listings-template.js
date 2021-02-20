@@ -35,8 +35,7 @@ function BlogListingTemplate({className, data, pageContext}) {
                     <Grid item container justify="center" alignItems="center" className="text-box">
                         <Grid item>
                             <Typography>
-                                This is my website. I am very <StyledLink theme={theme} to="/">cool</StyledLink> yup. I do the beep beep boop boop with my computer and then it
-                                runs a program. <StyledLink theme={theme} to="/blog">Beepadaboop</StyledLink>.
+                                Welcome to my blog! I write about my thoughts on life and happiness, as well as penning the occasional review of something I've enjoyed.
                             </Typography>
                         </Grid>
                     </Grid>
@@ -48,7 +47,7 @@ function BlogListingTemplate({className, data, pageContext}) {
                             <HeaderButton className="button" theme={theme} to="/blog/reflections/" text="Reflections" size="1rem" currPage={category === "reflections"}/>
                         </Grid>
                         <Grid item>
-                            <HeaderButton className="button" theme={theme} to="/blog/tech/" text="Tech" size="1rem" currPage={category === "tech"}/>
+                            <HeaderButton className="button" theme={theme} to="/blog/reviews/" text="Reviews" size="1rem" currPage={category === "reviews"}/>
                         </Grid>
                     </Grid>
                 </Grid>
@@ -96,7 +95,7 @@ export const Query= graphql`
             childImageSharp {
             # Specify the image processing specifications right in the query.
             # Makes it trivial to update as your page's design changes.
-                fixed (width: 200, height:200, cropFocus: CENTER){
+                fixed (quality: 90, width: 200, height:200, cropFocus: CENTER){
                     ...GatsbyImageSharpFixed
                 }
             }

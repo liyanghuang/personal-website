@@ -6,7 +6,7 @@ import StyledLink from '../components/StyledLink'
 function PostCard({className, theme, content}) {
 
     const {date, description, title, category, path} = content
-    let categoryAddition= (category === "Reflections")? "reflections/" : (category === "Tech")? "tech/" : ""
+    let categoryAddition= (category === "Reflections")? "reflections/" : (category === "Reviews")? "reviews/" : ""
 
 
     return (

@@ -75,14 +75,14 @@ const createPages = async({graphql, actions }) => {
         });
     }
 
-    const techPostEdges = data.allMarkdownRemark.edges.filter(e => (e.node.frontmatter.category === "Tech"))
+    const techPostEdges = data.allMarkdownRemark.edges.filter(e => (e.node.frontmatter.category === "Reviews"))
     const techPostNumbers = techPostEdges.map(e => e.node.frontmatter.postNumber).sort((a, b) => parseInt(b) - parseInt(a))
     const techNumPages = Math.ceil(techPostNumbers.length / postsPerPage)
 
     for (let i = 0; i < techNumPages; i+= 1) {
 
         let postsThisPage = techPostNumbers.slice(i*postsPerPage, (i+ 1)*postsPerPage);
-        let pathString = (i === 0)? '/blog/tech/' : `/blog/tech/page/${i+1}/`;
+        let pathString = (i === 0)? '/blog/reviews/' : `/blog/reviews/page/${i+1}/`;
 
         createPage({
             path: pathString,
@@ -91,7 +91,7 @@ const createPages = async({graphql, actions }) => {
                 postids: postsThisPage,
                 currpage: i+1,
                 numpages: techNumPages,
-                category: "tech"
+                category: "reviews"
             }
         });
     }
@@ -99,13 +99,13 @@ const createPages = async({graphql, actions }) => {
     if(techNumPages === 0)
     {
         createPage({
-            path: '/blog/tech/',
+            path: '/blog/reviews/',
             component: path.resolve('./src/templates/blog-listings-template.js'),
             context: {
                 postids: [],
                 currpage: 1,
                 numpages: 1,
-                category: "tech"
+                category: "reviews"
             }
         });
     }

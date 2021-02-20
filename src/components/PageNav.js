@@ -6,7 +6,7 @@ import NavButton from './NavButton'
 
 function PageNav({theme, currPage, className, numPages, category}) {
 
-    let categoryAddition= (category === "default")? "" : (category === "reflections")? "reflections/" : (category === "tech")? "tech/" : ""
+    let categoryAddition= (category === "default")? "" : (category === "reflections")? "reflections/" : (category === "reviews")? "reviews/" : ""
 
     const previousPage = (currPage === 1)? "disabled" : (currPage - 1 === 1)? `/blog/${categoryAddition}` : `/blog/${categoryAddition}page/${currPage - 1}`
     const nextPage = (currPage === numPages)? "disabled" : `/blog/${categoryAddition}page/${currPage + 1}`

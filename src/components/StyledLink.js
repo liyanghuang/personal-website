@@ -11,7 +11,7 @@ const ThemeLink = ({className, to, children}) => {
 export default styled(ThemeLink)`
   text-decoration: none;
   transition: 0.3s;
-  color: ${props => props.theme.palette.secondary.main};
+  color: ${props => (props.isTextColor)? props.theme.palette.text.primary : props.theme.palette.secondary.main}; 
   :hover{
     color:${props => props.theme.palette.primary.main};
   }

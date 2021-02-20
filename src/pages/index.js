@@ -30,14 +30,13 @@ const Index = ({className, data}) => {
         <Grid item container className="text-content" justify="center" alignItems="flex-start" direction="column" spacing={2} xs={12} md={7}>
           <Grid item className="header-box">
             <Typography variant="h2" align="left" className="text">
-              <strong>Hello, I'm Liyang.</strong>
+              <strong>Hey, I'm Liyang!</strong>
             </Typography>
           </Grid>
           <Grid item className="text-box">
             <Typography align="left" className="text">
-              This is my website. I am very <StyledLink theme={theme} to="/blog">cool</StyledLink> yup. I do the beep beep boop boop with my computer and then it
-              runs a program. <StyledLink theme={theme} to="/blog">Beepadaboop</StyledLink>. Please hire me. I do cool things like make Minecraft mobs. Elon Musk.
-              Tesla. One Piece is very good. <StyledALink theme={theme} to="https://github.com/liyanghuang/personal-website">Code</StyledALink>. Click click.
+              I'm a college student currently finishing up my sophomore year at UCLA. I enjoy playing games and making them too! 
+              In my free time you can find me doing random things with my friends, or binging shows at home.
             </Typography>
           </Grid>
           <Grid item container direction="row" className="button-box" justify="flex-start" alignItems="center" spacing={2}>
@@ -45,7 +44,7 @@ const Index = ({className, data}) => {
               <MainButtonFill text="Read My Woes" theme={theme} to="/blog"/>
             </Grid>
             <Grid item>
-              <MainButton text="Hire My Broke Ass" theme={theme} to="/contact"/>
+              <MainButton text="Get In Touch" theme={theme} to="/contact"/>
             </Grid>
           </Grid>
         </Grid>
@@ -59,11 +58,11 @@ const Index = ({className, data}) => {
 
 export const query = graphql`
   query {
-    file(relativePath: { eq: "treeProf.jpg" }) {
+    file(relativePath: { eq: "sitPic.jpg" }) {
       childImageSharp {
         # Specify the image processing specifications right in the query.
         # Makes it trivial to update as your page's design changes.
-        fixed (width: 300, height: 300){
+        fixed (quality: 100, width: 350, height: 350){
           ...GatsbyImageSharpFixed
         }
       }
