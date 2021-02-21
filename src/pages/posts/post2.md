@@ -16,7 +16,7 @@ ways.
 
 But today especially I have a decent amount of thoughts. Maybe just enough to write about. 
 
-&ensp;&ensp;&ensp;&ensp;But yeah, I while ago, maybe two or three years ago, I read this quote. It went something like "When you're happy, you hear the melody. When you're heartbroken, you hear the lyrics."
+&ensp;&ensp;&ensp;&ensp;But yeah, a while ago, maybe two or three years ago, I read this quote. It went something like "When you're happy, you hear the melody. When you're heartbroken, you hear the lyrics."
 It struck me as quite true and anytime I feel down and listen to sad songs, I really do find myself noticing what the songwriters are writing. I think this is especially true for foreign music,
 like Korean or Japanese music. Since I can't explicitly understand the lyrics, I go out of my way to seek the translation.
 And even though I'm reading the lyrics through the veil of translation, some of the words to these songs are really powerful. In a sense, not being able to understand the song lyrics allows them to convey their
