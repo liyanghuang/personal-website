@@ -1,6 +1,6 @@
 import React from 'react'
 import {useTheme} from '@material-ui/core/styles'
-import {Grid, Typography, Box} from '@material-ui/core'
+import {Grid, Typography, Box, Hidden} from '@material-ui/core'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import styled from 'styled-components'
@@ -26,7 +26,9 @@ function BlogListingTemplate({className, data, pageContext}) {
             </Grid>
             <Grid item container className="content-wrapper" direction="row" spacing={0}>
                 <Grid item container direction="column" alignItems="flex-end" justify="flex-start" className="side-content" xs={12} md={4} spacing={0}>
-                    <Box className="border-side"></Box>
+                    <Hidden smDown implementation="css">
+                        <Box className="border-side"></Box>
+                    </Hidden>
                     <Grid item container justify="flex-end" className="side-content-wrapper">
                         <Grid item container justify="center" alignItems="center" className="picture-box">
                             <Grid item>
