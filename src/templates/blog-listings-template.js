@@ -1,12 +1,11 @@
 import React from 'react'
 import {useTheme} from '@material-ui/core/styles'
-import {Grid, Typography} from '@material-ui/core'
+import {Grid, Typography, Box} from '@material-ui/core'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import styled from 'styled-components'
 import {graphql} from 'gatsby'
 import Img from 'gatsby-image'
-import StyledLink from '../components/StyledLink'
 import HeaderButton from '../components/HeaderButton'
 import PostCard from '../components/PostCard'
 import PageNav from '../components/PageNav'
@@ -26,28 +25,31 @@ function BlogListingTemplate({className, data, pageContext}) {
                 <Header theme={theme} currPage="blog"/> 
             </Grid>
             <Grid item container className="content-wrapper" direction="row" spacing={0}>
-                <Grid item container direction="column" alignItems="flex-end" justify="center" className="side-content" xs={12} md={4} spacing={0}>
-                    <Grid item container justify="center" alignItems="center" className="picture-box">
-                        <Grid item>
-                            <Img className="picture" fixed={data.file.childImageSharp.fixed} />
+                <Grid item container direction="column" alignItems="flex-end" justify="flex-start" className="side-content" xs={12} md={4} spacing={0}>
+                    <Box className="border-side"></Box>
+                    <Grid item container justify="flex-end" className="side-content-wrapper">
+                        <Grid item container justify="center" alignItems="center" className="picture-box">
+                            <Grid item>
+                                <Img className="picture" fixed={data.file.childImageSharp.fixed} />
+                            </Grid>
                         </Grid>
-                    </Grid>
-                    <Grid item container justify="center" alignItems="center" className="text-box">
-                        <Grid item>
-                            <Typography>
-                                Welcome to my blog! I write about my thoughts on life and happiness, as well as penning the occasional review of something I've enjoyed.
-                            </Typography>
+                        <Grid item container justify="center" alignItems="center" className="text-box">
+                            <Grid item>
+                                <Typography>
+                                    Welcome to my blog! I write about my thoughts on life and happiness, as well as penning the occasional review of something I've enjoyed.
+                                </Typography>
+                            </Grid>
                         </Grid>
-                    </Grid>
-                    <Grid item container className="button-box" direction="column" justify="center" alignItems="center">
-                        <Grid item>
-                            <HeaderButton className="button" theme={theme} to="/blog/" text="Recent" size="1rem" currPage={category === "default"}/>
-                        </Grid>
-                        <Grid item>
-                            <HeaderButton className="button" theme={theme} to="/blog/reflections/" text="Reflections" size="1rem" currPage={category === "reflections"}/>
-                        </Grid>
-                        <Grid item>
-                            <HeaderButton className="button" theme={theme} to="/blog/reviews/" text="Reviews" size="1rem" currPage={category === "reviews"}/>
+                        <Grid item container className="button-box" direction="column" justify="center" alignItems="center">
+                            <Grid item>
+                                <HeaderButton className="button" theme={theme} to="/blog/" text="Recent" size="1rem" currPage={category === "default"}/>
+                            </Grid>
+                            <Grid item>
+                                <HeaderButton className="button" theme={theme} to="/blog/reflections/" text="Reflections" size="1rem" currPage={category === "reflections"}/>
+                            </Grid>
+                            <Grid item>
+                                <HeaderButton className="button" theme={theme} to="/blog/reviews/" text="Reviews" size="1rem" currPage={category === "reviews"}/>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Grid>
@@ -138,6 +140,15 @@ export default styled(BlogListingTemplate)`
     }
 
     .side-content{
+        position: relative;
+    }
+
+    .border-side{
+        position:absolute;
+        height: 72vh;
+        right: 0;
+        top: 0;
+        width: 100%;
         border-right: 1px solid rgb(125,125,125);
         border-right: 1px solid rgba(255,255,255, 0.25);
         border-image: 
@@ -146,7 +157,6 @@ export default styled(BlogListingTemplate)`
             rgba(255, 255, 255, 0.25), 
             rgba(0, 0, 0, 0)
             ) 1 100%;
-        max-height: 72vh;
     }
 
     .header{
@@ -170,6 +180,9 @@ export default styled(BlogListingTemplate)`
             align-items: center;
             border-right: 0px;
         }
+        .side-content-wrapper{
+            justify-content: center;
+        }
         .text-box{
             padding: 0;
             padding-top: 2rem;
@@ -178,10 +191,11 @@ export default styled(BlogListingTemplate)`
             margin-top: 2rem;
             padding: 0;
             flex-direction: row;
+            width: 100%;
         }
         .button{
-            margin-left: 1rem;
-            margin-right: 1rem;
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
         }
         .post-content{
             margin-top: 2rem;

@@ -73,9 +73,9 @@ function BlogPostTemplate({className, data}) {
                         </Grid>
                     </Grid>
                     <Grid item className="about-des">
-                        <Typography variant="body1">This is my website. I am very <StyledLink theme={theme} to="/blog">cool</StyledLink> yup. I do the beep beep boop boop with my computer and then it
-                            runs a program. <StyledLink theme={theme} to="/blog">Beepadaboop</StyledLink>. Please hire me. I do cool things like make Minecraft mobs. Elon Musk.
-                            Tesla. One Piece is very good. <StyledALink theme={theme} to="https://github.com/liyanghuang/personal-website">Code</StyledALink>. Click click.
+                        <Typography variant="body1">
+                            Thanks for reading! I usually write just for fun so if you enjoyed reading, check out my other blog posts <StyledLink theme={theme} to="/blog/">here</StyledLink>. Or, if you have any other questions,
+                            feel free to contact me <StyledLink theme={theme} to="/contact/">here</StyledLink>. If you want to write something for my blog, feel free to reach out as well. Thanks once again for reading!
                         </Typography>
                     </Grid>
                 </Grid>

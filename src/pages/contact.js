@@ -6,6 +6,7 @@ import Footer from '../components/Footer'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import StyledALink from '../components/StyledALink'
+import {graphql} from 'gatsby'
 
 function About({className, data}) {
 

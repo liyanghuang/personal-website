@@ -12,14 +12,14 @@ function PostCard({className, theme, content}) {
     return (
         <Grid className={className} container direction="column">
             <Grid container item direction="row" alignItems="center" justify="flex-start">
-                <Grid item container justify="flex-start" className="title">
+                <Grid item container justify="flex-start" className="title" md={6} sm={12}>
                     <Grid item>
                         <Typography variant="h4" className="title-text">
                             <StyledLink className="link" theme={theme} to={path}>{title}</StyledLink>                       
                         </Typography>
                     </Grid>
                 </Grid>
-                <Grid item container justify="flex-end" className="date">
+                <Grid item container justify="flex-end" className="date" md={6} sm={12}>
                     <Grid item>
                         <Typography variant="body2" color="primary">
                             {date}
@@ -52,10 +52,8 @@ padding-right: 10rem;
     font-weight: 600;
 }
 .title{
-    width: 50%;
 }
 .date{
-    width: 50%;
 }
 .link{
     color: ${props=> props.theme.palette.text.primary};
@@ -69,5 +67,8 @@ padding-right: 10rem;
 @media only screen and (max-width: 960px){
     padding-left: 5rem;
     padding-right: 5rem;
+    .date{
+        justify-content: flex-start;
+    }
 }
 `

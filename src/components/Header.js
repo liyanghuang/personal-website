@@ -18,13 +18,13 @@ const Header = ({className, theme, currPage}) => {
             </Grid>
             <Grid item container className="buttons-container" direction = "row" justify="flex-end" md={11} xs={12} spacing={4}>
                 <Grid item className="about">
-                    <HeaderButton text="About" theme={theme} to="/" currPage={currPage === "default"} size="1.3rem"/>
+                    <HeaderButton className="button-styles" text="About" theme={theme} to="/" currPage={currPage === "default"} size="1.3rem"/>
                 </Grid>
                 <Grid item className="blog">
-                    <HeaderButton text="Blog" theme={theme} to="/blog" currPage={currPage === "blog"} size="1.3rem"/>
+                    <HeaderButton className="button-styles" text="Blog" theme={theme} to="/blog" currPage={currPage === "blog"} size="1.3rem"/>
                 </Grid>
                 <Grid item className="contact">
-                    <HeaderButton text="Contact" theme={theme} to="/contact" currPage={currPage === "contact"} size="1.3rem"/>
+                    <HeaderButton className="button-styles" text="Contact" theme={theme} to="/contact" currPage={currPage === "contact"} size="1.3rem"/>
                 </Grid>
             </Grid>
         </Grid>
@@ -56,6 +56,21 @@ export default styled(Header)`
     @media only screen and (max-width: 960px){
         .buttons-container{
             justify-content: center;
+        }
+        .button-styles{
+            font-size: 1rem;
+        }
+        .about{
+            padding-left: 0.25rem;
+            padding-right: 0.25rem;
+        }
+        .contact{
+            padding-left: 0.25rem;
+            padding-right: 0.25rem;
+        }
+        .blog{
+            padding-left: 0.25rem;
+            padding-right: 0.25rem;
         }
     }
 `

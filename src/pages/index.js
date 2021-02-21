@@ -9,8 +9,6 @@ import styled from 'styled-components';
 import { Typography } from '@material-ui/core';
 import Img from 'gatsby-image';
 import {graphql} from 'gatsby';
-import StyledLink from '../components/StyledLink';
-import StyledALink from '../components/StyledALink';
 
 const Index = ({className, data}) => {
 
