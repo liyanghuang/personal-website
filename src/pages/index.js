@@ -9,6 +9,7 @@ import styled from 'styled-components';
 import { Typography } from '@material-ui/core';
 import Img from 'gatsby-image';
 import {graphql} from 'gatsby';
+import {Helmet} from 'react-helmet'
 
 const Index = ({className, data}) => {
 
@@ -16,6 +17,9 @@ const Index = ({className, data}) => {
 
   return (
     <Grid className={className} direction="column" container spacing={0}>
+        <Helmet>
+          <title>About</title>
+        </Helmet>
       <Grid item className="header">
         <Header theme={theme} currPage="default"/> 
       </Grid>
@@ -109,6 +113,12 @@ export default styled(Index)`
     align-items: stretch;
   }
   @media only screen and (max-width: 960px){
+    .header{
+      height: 8vh;
+    }
+    .footer{
+      height: 12vh;
+    }
     .button-box{
       margin-left:0.5rem;
     }

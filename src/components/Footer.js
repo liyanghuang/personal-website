@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Box, Grid, Hidden} from '@material-ui/core'
+import { Box, Grid} from '@material-ui/core'
 import {Tooltip} from '@material-ui/core'
 import {FaGithubSquare, FaLinkedin} from 'react-icons/fa'
 import {ImMail3} from 'react-icons/im'
@@ -38,9 +38,10 @@ const Footer = ({className}) => {
 
 export default styled(Footer)`
     position:relative;
-    min-height: 8vh;
+    height: 8vh;
     padding-top: 1rem;
     width: 100vw;
+
     .border{
         position: absolute;
         top: 0.5rem;
@@ -73,15 +74,15 @@ export default styled(Footer)`
 
     }
     @media only screen and (max-width: 960px){
+        height: 12vh;
         .copyright{
             position: relative;
             left: 0;
             top: 0;
-            margin-bottom: 1rem;
         }
         .icons-container{
-            margin-top: 0.25rem;
-            margin-bottom: 0.25rem;
+            padding-top: 0.1rem;
+            margin-bottom: 0.05rem;
         }
     }
 `

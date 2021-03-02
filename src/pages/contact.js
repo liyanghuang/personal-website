@@ -7,6 +7,7 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 import StyledALink from '../components/StyledALink'
 import {graphql} from 'gatsby'
+import {Helmet} from 'react-helmet'
 
 function About({className, data}) {
 
@@ -14,6 +15,9 @@ function About({className, data}) {
 
     return (
         <Grid className={className} direction="column" container spacing={0}>
+            <Helmet>
+                <title>Contact</title>
+            </Helmet>
             <Grid item className="header">
                 <Header theme={theme} currPage="contact"/> 
             </Grid>
@@ -89,6 +93,12 @@ export default styled(About)`
         min-height: 80vh;
     }
     @media only screen and (max-width: 960px){
+        .header{
+            height: 8vh;
+        }
+        .footer{
+            height: 12vh;
+        }
         .text-content{
             height: 100%;
             margin-top: 1rem;

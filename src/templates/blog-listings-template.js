@@ -9,6 +9,7 @@ import Img from 'gatsby-image'
 import HeaderButton from '../components/HeaderButton'
 import PostCard from '../components/PostCard'
 import PageNav from '../components/PageNav'
+import {Helmet} from 'react-helmet'
 
 
 function BlogListingTemplate({className, data, pageContext}) {
@@ -21,6 +22,9 @@ function BlogListingTemplate({className, data, pageContext}) {
 
     return (
         <Grid className={className} direction="column" container spacing={0}>
+            <Helmet>
+                <title>Blog - {(category === "default")? "Recent" : (category === "other")? "Other" : category.charAt(0).toUpperCase() + category.slice(1)}</title>
+            </Helmet>
             <Grid item className="header">
                 <Header theme={theme} currPage="blog"/> 
             </Grid>
@@ -47,10 +51,10 @@ function BlogListingTemplate({className, data, pageContext}) {
                                 <HeaderButton className="button" theme={theme} to="/blog/" text="Recent" size="1rem" currPage={category === "default"}/>
                             </Grid>
                             <Grid item>
-                                <HeaderButton className="button" theme={theme} to="/blog/tags/" text="Tags" size="1rem" currPage={category === "reflections"}/>
+                                <HeaderButton className="button" theme={theme} to="/blog/tags/" text="Tags" size="1rem" currPage={category !== "default" && category !== "other"}/>
                             </Grid>
                             <Grid item>
-                                <HeaderButton className="button" theme={theme} to="/blog/reviews/" text="Reviews" size="1rem" currPage={category === "reviews"}/>
+                                <HeaderButton className="button" theme={theme} to="/blog/other/" text="Other" size="1rem" currPage={category === "other"}/>
                             </Grid>
                         </Grid>
                     </Grid>
@@ -175,6 +179,12 @@ export default styled(BlogListingTemplate)`
         align-items: stretch;
     }
     @media only screen and (max-width: 960px){
+        .header{
+            height: 8vh;
+        }
+        .footer{
+            height: 12vh;
+        }
         .picture-box{
             padding: 0;
         }

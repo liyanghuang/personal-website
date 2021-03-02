@@ -54,6 +54,7 @@ export default styled(Header)`
     .contact{
     }
     @media only screen and (max-width: 960px){
+        height: 8vh;
         .buttons-container{
             justify-content: center;
         }

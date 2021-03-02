@@ -8,16 +8,20 @@ import {graphql} from 'gatsby'
 import Img from 'gatsby-image'
 import HeaderButton from '../components/HeaderButton'
 import StyledLink from '../components/StyledLink'
+import {Helmet} from 'react-helmet'
 
 
 function BlogTagListingTemplate({className, data}) {
 
     const theme = useTheme()
     let {edges} = data.allMarkdownRemark
-    edges = [...new Set(edges.map(e =>  e.node.frontmatter.category))];
+    edges = [...new Set(edges.map(e =>  e.node.frontmatter.category))].sort();
 
     return (
         <Grid className={className} direction="column" container spacing={0}>
+            <Helmet>
+                <title>Blog - Tags</title>
+            </Helmet>
             <Grid item className="header">
                 <Header theme={theme} currPage="blog"/> 
             </Grid>
@@ -47,7 +51,7 @@ function BlogTagListingTemplate({className, data}) {
                                 <HeaderButton className="button" theme={theme} to="/blog/tags/" text="Tags" size="1rem" currPage/>
                             </Grid>
                             <Grid item>
-                                <HeaderButton className="button" theme={theme} to="/blog/reviews/" text="Reviews" size="1rem" />
+                                <HeaderButton className="button" theme={theme} to="/blog/other/" text="Other" size="1rem" />
                             </Grid>
                         </Grid>
                     </Grid>
@@ -175,6 +179,12 @@ export default styled(BlogTagListingTemplate)`
         align-items: stretch;
     }
     @media only screen and (max-width: 960px){
+        .header{
+            height: 8vh;
+        }
+        .footer{
+            height: 12vh;
+        }
         .picture-box{
             padding: 0;
         }

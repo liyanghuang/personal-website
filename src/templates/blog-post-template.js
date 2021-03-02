@@ -5,10 +5,10 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import styled from 'styled-components'
 import StyledLink from '../components/StyledLink'
-import StyledALink from '../components/StyledALink'
 import {graphql} from 'gatsby'
 import Img from 'gatsby-image'
 import RelatedPost from '../components/RelatedPost'
+import {Helmet} from 'react-helmet'
 
 function BlogPostTemplate({className, data}) {
 
@@ -18,6 +18,9 @@ function BlogPostTemplate({className, data}) {
 
     return (
         <Grid className={className} direction="column" container spacing={0}>
+            <Helmet>
+                <title>{data.markdownRemark.frontmatter.title}</title>
+            </Helmet>
             <Grid item className="header">
                 <Header theme={theme} currPage="blog"/> 
             </Grid>
@@ -185,6 +188,13 @@ export default styled(BlogPostTemplate)`
     .related-posts-text{
     }
     @media only screen and (max-width: 960px){
+        .header{
+            align-items: normal;
+            height: 8vh;
+        }
+        .footer{
+            height: 12vh;
+        }
         .related-posts{
             align-items: center;
             justify-content: center;

@@ -13,14 +13,16 @@ const createPages = async({graphql, actions }) => {
                             postNumber
                             path
                             category
+                            author
                         }
                     }
                 }
             }
         }
     `)
-
-    const postNumbers = data.allMarkdownRemark.edges.map(e => e.node.frontmatter.postNumber).sort((a,b) => parseInt(b) - parseInt(a))
+    
+    const postEdges = data.allMarkdownRemark.edges.filter(e => (e.node.frontmatter.author === "Liyang Huang"))
+    const postNumbers = postEdges.map(e => e.node.frontmatter.postNumber).sort((a,b) => parseInt(b) - parseInt(a))
     const postsPerPage = 8;
     const numPages = Math.ceil(postNumbers.length / postsPerPage)
 
@@ -45,6 +47,28 @@ const createPages = async({graphql, actions }) => {
         path: '/blog/tags/',
         component: path.resolve('./src/templates/blog-tag-listings-template.js'),
     })
+
+    const otherPostEdges= data.allMarkdownRemark.edges.filter(e => (e.node.frontmatter.author != "Liyang Huang"))
+    const otherPostNumbers= otherPostEdges.map(e => e.node.frontmatter.postNumber).sort((a, b) => parseInt(b) - parseInt(a))
+    const otherNumPages = Math.ceil(otherPostNumbers.length / postsPerPage)
+
+    for (let i = 0; i < otherNumPages; i+= 1) {
+
+        let postsThisPage = otherPostNumbers.slice(i*postsPerPage, (i+ 1)*postsPerPage);
+        let pathString = (i === 0)? `/blog/other/` : `/blog/other/page/${i+1}/`;
+
+        createPage({
+            path: pathString,
+            component: path.resolve('./src/templates/blog-listings-template.js'),
+            context: {
+                postids: postsThisPage,
+                currpage: i+1,
+                numpages: otherNumPages,
+                category: "other"
+            }
+        });
+    }
+
 
     // make array of all tags
     const allTags = [... new Set(data.allMarkdownRemark.edges.map(e => e.node.frontmatter.category))]
