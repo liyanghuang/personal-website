@@ -1,12 +1,12 @@
 ---
-path: "/blog/anime-romance-reviews"
+path: "/blog/testing"
 date: "February 18, 2021"
-title: "Which Romance Anime Should You Watch?"
+title: "Testing Alt Authors"
 author: "Emma Chen"
-description: "During quarantine I've gotten myself addicted to romance anime. In this post I attempt to recoup some of my wasted time by reviewing some of the romance anime I've watched."
+description: "Something good that someone else wrote, at least I hope it's good"
 postNumber: "4"
 category: "Bobbies"
-subtitle: "Reviewing and ranking five romance anime I've watched during quarantine"
+subtitle: "This better be a good piece of writing"
 ---
 
-During quarantine one of my guilty pleasures has been watching romance anime. Perhaps it’s because I’ve been lacking love myself? Whatever the reason may be, I decided to write a review of five romance anime that I’ve watched. I’ll be ranking them and even though I enjoyed all five of them to some extent, there’s definitely something about
+Good writing here
