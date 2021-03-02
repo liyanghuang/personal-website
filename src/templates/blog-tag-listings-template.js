@@ -7,17 +7,14 @@ import styled from 'styled-components'
 import {graphql} from 'gatsby'
 import Img from 'gatsby-image'
 import HeaderButton from '../components/HeaderButton'
-import PostCard from '../components/PostCard'
-import PageNav from '../components/PageNav'
+import StyledLink from '../components/StyledLink'
 
 
-function BlogListingTemplate({className, data, pageContext}) {
-
-    const {postids, currpage, numpages, category} = pageContext
+function BlogTagListingTemplate({className, data}) {
 
     const theme = useTheme()
     let {edges} = data.allMarkdownRemark
-    edges = postids.map(thisID => edges.filter(e => e.node.frontmatter.postNumber === thisID)[0]);
+    edges = [...new Set(edges.map(e =>  e.node.frontmatter.category))];
 
     return (
         <Grid className={className} direction="column" container spacing={0}>
@@ -44,30 +41,31 @@ function BlogListingTemplate({className, data, pageContext}) {
                         </Grid>
                         <Grid item container className="button-box" direction="column" justify="center" alignItems="center">
                             <Grid item>
-                                <HeaderButton className="button" theme={theme} to="/blog/" text="Recent" size="1rem" currPage={category === "default"}/>
+                                <HeaderButton className="button" theme={theme} to="/blog/" text="Recent" size="1rem" />
                             </Grid>
                             <Grid item>
-                                <HeaderButton className="button" theme={theme} to="/blog/tags/" text="Tags" size="1rem" currPage={category === "reflections"}/>
+                                <HeaderButton className="button" theme={theme} to="/blog/tags/" text="Tags" size="1rem" currPage/>
                             </Grid>
                             <Grid item>
-                                <HeaderButton className="button" theme={theme} to="/blog/reviews/" text="Reviews" size="1rem" currPage={category === "reviews"}/>
+                                <HeaderButton className="button" theme={theme} to="/blog/reviews/" text="Reviews" size="1rem" />
                             </Grid>
                         </Grid>
                     </Grid>
                 </Grid>
                 <Grid item container className="post-content" justify="flex-start" alignItems="flex-start" direction="column" xs={12} md={8}>
-                    {edges.map( ({node}) => (
-                        <Grid item className="full-width" key={node.id}>
-                            <PostCard  theme={theme} content={{
-                                date: node.frontmatter.date,
-                                title: node.frontmatter.title,
-                                description: node.frontmatter.description,
-                                category: node.frontmatter.category.toLowerCase(),
-                                path: node.frontmatter.path
-                            }}/>
+                    <Grid item className="full-width">
+                        <Typography variant="h4" className="tag-text">Tags</Typography>
+                    </Grid>
+                    {edges.map( e => (
+                        <Grid item container className="full-width" key={e}>
+                            <Grid item>
+                                <Typography><strong>•&ensp;</strong></Typography>
+                            </Grid>
+                            <Grid item>
+                                <StyledLink className="tag-link" theme={theme} to={`/blog/${e.toLowerCase()}/`}><Typography variant="body1">{e}</Typography></StyledLink>
+                            </Grid>
                         </Grid>
                     ))}
-                    <PageNav theme={theme} currPage={currpage} numPages={numpages} category={category}/>
                 </Grid>
             </Grid>
             <Grid item className="footer">
@@ -78,18 +76,12 @@ function BlogListingTemplate({className, data, pageContext}) {
 }
 
 export const Query= graphql`
-    query BlogPosts ($postids: [String]!){
-        allMarkdownRemark(filter: {frontmatter:{ postNumber: {in: $postids}}}) {
+    query BlogTagPosts {
+        allMarkdownRemark{
             edges {
                 node {
                     id
                     frontmatter {
-                        title
-                        path
-                        date
-                        author
-                        description
-                        postNumber
                         category
                     }
                 }
@@ -107,13 +99,21 @@ export const Query= graphql`
     }
 `
 
-export default styled(BlogListingTemplate)`
+export default styled(BlogTagListingTemplate)`
     position: relative;
     min-height: 100vh;
     overflow-x: hidden;
 
     .full-width{
         width: 100%;
+        padding-left: 4rem;
+        padding-right: 10rem;
+    }
+
+    .tag-text{
+        padding-top: 1rem;
+        font-weight: 600;
+        padding-bottom: 1rem;
     }
 
     .picture{

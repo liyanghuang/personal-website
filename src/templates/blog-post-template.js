@@ -13,7 +13,7 @@ import RelatedPost from '../components/RelatedPost'
 function BlogPostTemplate({className, data}) {
 
     const theme = useTheme()
-    let categoryAddition= (data.markdownRemark.frontmatter.category === "Reflections")? "reflections/" : (data.markdownRemark.frontmatter.category === "Reviews")? "reviews/" : ""
+    let categoryAddition= `${data.markdownRemark.frontmatter.category.toLowerCase()}/`
 
 
     return (

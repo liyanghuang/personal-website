@@ -21,6 +21,9 @@ module.exports = {
         trackingIds: [
           "G-HF63XJW8QH", // Google Analytics / GA
         ],
+        pluginConfig: {
+          head: true,
+        }
       },
     },
     `gatsby-plugin-preload-fonts`,

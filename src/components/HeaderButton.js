@@ -17,6 +17,7 @@ export default styled(HeaderButton)`
     transition: 0.3s;
     line-height: 1.5;
     padding: 0.25rem;
+    min-width: 1rem;
     :hover {
         background-color: transparent;
         color: ${props => props.theme.palette.primary.main};

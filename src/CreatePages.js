@@ -41,6 +41,41 @@ const createPages = async({graphql, actions }) => {
         });
     }
 
+    createPage({
+        path: '/blog/tags/',
+        component: path.resolve('./src/templates/blog-tag-listings-template.js'),
+    })
+
+    // make array of all tags
+    const allTags = [... new Set(data.allMarkdownRemark.edges.map(e => e.node.frontmatter.category))]
+
+    allTags.forEach(tag => {
+
+        const tagPostEdges= data.allMarkdownRemark.edges.filter(e => (e.node.frontmatter.category === tag))
+        const tagPostNumbers= tagPostEdges.map(e => e.node.frontmatter.postNumber).sort((a, b) => parseInt(b) - parseInt(a))
+        const tagNumPages = Math.ceil(tagPostNumbers.length / postsPerPage)
+
+        for (let i = 0; i < tagNumPages; i+= 1) {
+
+            let postsThisPage = tagPostNumbers.slice(i*postsPerPage, (i+ 1)*postsPerPage);
+            let pathString = (i === 0)? `/blog/${tag.toLowerCase()}/` : `/blog/${tag.toLowerCase()}/page/${i+1}/`;
+
+            createPage({
+                path: pathString,
+                component: path.resolve('./src/templates/blog-listings-template.js'),
+                context: {
+                    postids: postsThisPage,
+                    currpage: i+1,
+                    numpages: tagNumPages,
+                    category: tag.toLowerCase()
+                }
+            });
+        }
+       
+    })
+
+    /*
+
     const reflectionPostEdges = data.allMarkdownRemark.edges.filter(e => (e.node.frontmatter.category === "Reflections"))
     const reflectionPostNumbers = reflectionPostEdges.map(e => e.node.frontmatter.postNumber).sort((a, b) => parseInt(b) - parseInt(a))
     const reflectionNumPages = Math.ceil(reflectionPostNumbers.length / postsPerPage)
@@ -109,6 +144,7 @@ const createPages = async({graphql, actions }) => {
             }
         });
     }
+    */
 
     data.allMarkdownRemark.edges.forEach(e => {
         let extraPosts = data.allMarkdownRemark.edges.filter(edge => ((edge.node.frontmatter.category === e.node.frontmatter.category) && (edge.node.frontmatter.postNumber != e.node.frontmatter.postNumber)))
